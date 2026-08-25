@@ -67,15 +67,12 @@ node scripts/preview.js paper      # tema claro
 ```bash
 npm i -g vercel
 vercel login
-vercel                      # cria o projeto e faz um deploy de preview
-vercel env add PAT_1        # cole o token; marque Production, Preview e Development
+vercel link                 # ou `vercel` para criar o projeto
+vercel env add PAT_1        # cole o token; marque ao menos Production
 vercel --prod
 ```
 
-Não há build step: os arquivos em `api/` já são serverless functions e o projeto não
-tem dependências. Quando o Vercel perguntar o framework, responda **Other**.
-
-Depois do `vercel --prod`:
+Em **Framework Preset**, use **Node**. Não há build step e não há dependências.
 
 ```
 https://seu-app.vercel.app/donut?username=SEU_USER
@@ -83,28 +80,26 @@ https://seu-app.vercel.app/stats?username=SEU_USER
 https://seu-app.vercel.app/langs?username=SEU_USER
 ```
 
-`vercel.json` cria esses atalhos a partir de `/api/*` e sobe o `maxDuration` para 20s —
-a primeira requisição sem cache pagina até 500 repositórios no GraphQL, e o teto padrão
-de 10s é apertado para contas grandes.
+### O entrypoint é o `server.js`
 
-### O `.vercelignore` não é opcional
+Com o preset Node, a Vercel captura o `server.js` da raiz — aquele que chama
+`server.listen()` — e transforma ele na função do projeto. É **o mesmo servidor do
+desenvolvimento local**: o que você testa em `localhost:3000` é literalmente o que roda
+em produção, sem adaptador no meio e sem rewrites para manter em sincronia.
 
-A Vercel **captura automaticamente** um `server.js` na raiz que chame `server.listen()`
-e transforma ele na função do projeto. Como este repositório tem um `server.js` — o
-servidor de desenvolvimento local — isso competiria com os handlers de `api/` e deixaria
-o roteamento imprevisível. O `.vercelignore` mantém `server.js` fora do deploy justamente
-por isso. Se você renomear ou remover esse arquivo, revise o `.vercelignore` junto.
+Por isso `server.js` não aparece no `.vercelignore`. Se um dia você renomear esse
+arquivo, o deploy quebra com *"No entrypoint found"* — a Vercel procura por nome.
 
-### Variáveis de ambiente
+O `vercel.json` existe só para subir o `maxDuration` para 20s: a primeira requisição
+sem cache pagina até 500 repositórios no GraphQL, e o teto padrão de 10s é apertado
+para contas grandes.
 
-`PAT_1` precisa existir no ambiente **Production** para o card funcionar em produção.
-Se você adicionar `PAT_2`, `PAT_3` etc. depois, cada um exige um `vercel env add` novo —
-e um redeploy, porque variáveis são injetadas no build.
+### Cache
 
-```bash
-vercel env ls               # confere o que está configurado
-vercel --prod               # redeploy após mexer nas variáveis
-```
+O handler devolve `s-maxage=1800, stale-while-revalidate=3600`. A Vercel consome esses
+valores no CDN e envia só o `max-age` ao navegador — por isso a resposta mostra
+`X-Vercel-Cache: HIT` a partir do segundo acesso, servindo em ~100ms enquanto revalida
+em background.
 
 ### Lembre do camo
 
@@ -115,8 +110,8 @@ Para o seu próprio perfil, a rota B continua sendo a melhor escolha.
 ### Outras plataformas
 
 A lógica toda vive em `src/handler.js`, que é agnóstico de framework e devolve
-`{ status, headers, body }`. Netlify Functions, Cloudflare Workers e Deno Deploy pedem
-só um adaptador de três linhas, como os de `api/`.
+`{ status, headers, body }`. `server.js` é o adaptador para Node puro; Netlify
+Functions, Cloudflare Workers e Deno Deploy pedem um equivalente de poucas linhas.
 
 ---
 
@@ -350,7 +345,6 @@ regenera em background.
 ## 8. Estrutura
 
 ```
-api/                     handlers da Vercel (3 linhas cada)
 src/
   github.js              cliente GraphQL, rodízio de tokens, paginação
   stats.js               agregação: estrelas, linguagens por bytes ou por repo
@@ -366,13 +360,13 @@ src/
     stats-card.js
     donut-card.js        ← o card assinatura
     langs-card.js
-server.js                servidor local
+server.js                servidor local — e o entrypoint na Vercel
 scripts/preview.js       render com dados falsos, sem token
 scripts/render.js        CLI que grava os SVGs em disco (usado pelo Actions)
 scripts/fetch-icons.js   baixa os ícones e regrava icon-data.js
 scripts/mock-data.js     dados falsos compartilhados
 templates/cards.yml      workflow para copiar ao repo do perfil
-vercel.json              rewrites de /stats, /donut, /langs
+vercel.json              maxDuration da função
 docs/                    imagens de exemplo deste README
 ```
 
@@ -383,8 +377,7 @@ docs/                    imagens de exemplo deste README
    Se o card listar linguagens, use `legend()` (`src/render/legend.js`) em vez de
    escrever a lista à mão: ele já traz ícone, fallback e alinhamento.
 2. Registre o tipo em `handle()` (`src/handler.js`).
-3. Crie `api/meu-card.js` copiando um dos existentes e trocando o nome do tipo.
-4. Adicione o rewrite em `vercel.json`.
+3. Acrescente a rota em `server.js`, no conjunto `KINDS`.
 
 ## Notas de design
 

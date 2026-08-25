@@ -1,10 +1,9 @@
-# A Vercel captura automaticamente um server.js na raiz que chame
-# server.listen() e transforma ELE na função — o que competiria com os
-# handlers de api/ e tornaria os rewrites deste projeto imprevisíveis.
-# server.js aqui é só o servidor de desenvolvimento local; fora do deploy.
-server.js
+# server.js NÃO entra nesta lista, de propósito.
+# Com o preset "Node", a Vercel captura o server.js da raiz como entrypoint do
+# projeto. É o mesmo servidor do desenvolvimento local, então o que você testa
+# em localhost é literalmente o que roda em produção.
 
-# Nada disso é importado por api/ em runtime.
+# Nada disso é importado em runtime.
 scripts/
 docs/
 preview/

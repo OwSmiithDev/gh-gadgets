@@ -1,25 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "rewrites": [
-    {
-      "source": "/",
-      "destination": "/api/donut"
-    },
-    {
-      "source": "/stats",
-      "destination": "/api/stats"
-    },
-    {
-      "source": "/donut",
-      "destination": "/api/donut"
-    },
-    {
-      "source": "/langs",
-      "destination": "/api/langs"
-    }
-  ],
   "functions": {
-    "api/*.js": {
+    "server.js": {
       "maxDuration": 20
     }
   }
