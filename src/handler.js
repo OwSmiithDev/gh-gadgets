@@ -109,7 +109,7 @@ export async function handle(kind, query) {
         width: clamp(width || 760, 520, 1100),
         centerValue,
         centerLabel,
-        ringWidth: clamp(parseInt(query.ring_width, 10) || 20, 8, 40),
+        ringWidth: clamp(parseInt(query.ring_width, 10) || 26, 8, 40),
       });
     } else {
       return svgResponse(errorCard("Endpoint desconhecido."), 0, 404);

@@ -7,17 +7,16 @@ Três cards:
 
 | Endpoint | O que mostra |
 |---|---|
-| `/stats` | Grade tipo ficha técnica: estrelas, contribuições, commits, PRs, issues, seguidores |
-| `/donut` | Anel segmentado de linguagens com contagem de repositórios no centro |
-| `/langs` | Barra composta + legenda das linguagens mais usadas |
+| `/stats` | Tiles com estrelas, contribuições, seguidores, commits, PRs e issues |
+| `/donut` | Anel segmentado à esquerda, legenda em pílulas à direita |
+| `/langs` | Barra composta no topo, legenda em duas colunas embaixo |
 
 A legenda usa o **ícone real de cada linguagem**, embutido no SVG — nada é carregado
 de fora. Veja a [seção 5](#5-ícones-das-linguagens).
 
-<p align="center">
-  <img src="./docs/donut.svg" height="300" alt="Card de linguagens em anel">
-  <img src="./docs/langs.svg" height="300" alt="Card de linguagens em barra">
-</p>
+<img src="./docs/donut.svg" width="720" alt="Card de linguagens em anel">
+<img src="./docs/langs.svg" width="720" alt="Card de linguagens em barra">
+<img src="./docs/stats.svg" width="720" alt="Card de estatísticas">
 
 ---
 
@@ -55,9 +54,9 @@ node server.js
 Preview sem token (dados falsos, só para ajustar o visual):
 
 ```bash
-node scripts/preview.js            # tema obsidian
-node scripts/preview.js paper      # tema claro
-# gera preview/*.svg
+node scripts/preview.js                # tema obsidian → preview/
+node scripts/preview.js paper          # tema claro
+node scripts/preview.js obsidian docs  # grava noutra pasta
 ```
 
 ---
@@ -73,6 +72,10 @@ vercel --prod
 ```
 
 Em **Framework Preset**, use **Node**. Não há build step e não há dependências.
+
+O `package.json` fixa `engines.node` em `22.x`. A Vercel só oferece 20.x, 22.x e 24.x, e
+uma faixa aberta deixaria a versão do deploy variar; localmente qualquer Node 18+ roda,
+já que a única exigência é o `fetch` global.
 
 ```
 https://seu-app.vercel.app/donut?username=SEU_USER
@@ -173,21 +176,29 @@ Testar localmente antes de commitar:
 ```bash
 node scripts/render.js --user=SEU_USER --out=assets --donut="count_mode=repo"
 node scripts/render.js --user=SEU_USER --mock=true --out=assets   # sem token, dados falsos
+node scripts/render.js --user=SEU_USER --out=assets --width=560   # todos mais estreitos
 ```
+
+As flags do `render.js` são o espelho dos parâmetros de query da rota A:
+`--theme`, `--locale`, `--width`, `--hide_border`, `--disable_animations`, `--suffix`,
+e `--donut=` / `--langs=` para os parâmetros específicos de cada card
+(`--donut="count_mode=repo&center=code&card_width=900"`).
 
 **Qual escolher:** se o card é só seu, rota B. Se você quer publicar como serviço
 para outras pessoas usarem, rota A.
 
-### Lado a lado
+### Tamanho
 
-O Markdown do GitHub não aceita flexbox, então usa-se HTML:
+Os três cards saem com 760px de largura, o que já é mais do que a coluna de leitura
+do GitHub. Lado a lado eles quebram no celular — prefira um por linha e controle a
+escala pelo `width` da tag:
 
 ```html
-<p align="center">
-  <img src="./assets/stats.svg" height="208" alt="Estatísticas do GitHub">
-  <img src="./assets/donut.svg" height="336" alt="Linguagens mais usadas">
-</p>
+<img src="./assets/donut.svg" width="640" alt="Linguagens mais usadas">
 ```
+
+Se quiser mesmo dois na mesma linha, gere-os estreitos com `card_width=520` na rota A,
+ou passe `--donut="card_width=520"` no `render.js`.
 
 ### Tema claro e escuro automático
 
@@ -214,9 +225,9 @@ node scripts/render.js --user=SEU_USER --out=assets --theme=paper --suffix=-ligh
 
 A legenda do `/donut` e do `/langs` mostra o ícone real de cada linguagem, vindo de
 [tandpfun/skill-icons](https://github.com/tandpfun/skill-icons) (MIT). Linguagem sem
-ícone correspondente cai no quadradinho colorido de sempre — a legenda nunca fica com
-buraco, e os dois marcadores ocupam a mesma largura, então a coluna de texto continua
-alinhada mesmo numa legenda misturando os dois casos.
+ícone correspondente cai num quadrado na cor dela — a legenda nunca fica com buraco, e
+os dois marcadores ocupam a mesma caixa, então a coluna de texto continua alinhada
+mesmo numa legenda misturando os dois casos.
 
 A variante `-Dark` ou `-Light` é escolhida pela luminância do fundo do card, calculada
 em vez de fixada no tema: se você sobrescrever `bg_color` para uma cor clara, os ícones
@@ -230,9 +241,10 @@ redundante — por que não apontar para a URL do skill-icons? Três motivos:
 1. **SVG exibido via `<img>` não carrega recurso externo.** É assim que o GitHub
    renderiza o card. Um `<image href="https://...">` dentro dele simplesmente não
    aparece. O ícone precisa viajar dentro do próprio arquivo.
-2. **`data:` URI isola cada ícone.** 156 dos ícones do repositório usam ids de gradiente
-   gerados pelo Figma (`paint0_linear_...`), que colidiriam entre si se fossem inlinados
-   como SVG aninhado no mesmo documento.
+2. **`data:` URI isola cada ícone.** 23 dos 94 ícones que este projeto vendoriza — 156
+   dos 402 do repositório original — usam ids de gradiente gerados pelo Figma
+   (`paint0_linear_...`), que colidiriam entre si se fossem inlinados como SVG aninhado
+   no mesmo documento.
 3. **Funciona em qualquer runtime.** Um módulo JS carrega igual em Vercel, Workers, Deno
    e no Actions, sem `fs` e sem configuração de bundling.
 
@@ -279,7 +291,7 @@ linguagem do Terraform), `PLpgSQL` → PostgreSQL, `Blade` → Laravel.
 | `hide_title` | `false` | Remove o título |
 | `hide_border` | `false` | Remove a borda |
 | `disable_animations` | `false` | Desliga o fade-in |
-| `card_width` | varia | Largura em px. `/donut` aceita 520–1100 (layout horizontal); `/langs`, 280–600 |
+| `card_width` | `760` | Largura em px. Os três cards aceitam 520–1100 |
 | `locale` | `pt-BR` | `pt-BR` usa vírgula decimal; `en` usa ponto |
 | `cache_seconds` | `1800` | Entre 1800 e 86400 |
 
@@ -295,7 +307,7 @@ Cores individuais (hex sem `#`) sobrescrevem o tema:
 | Parâmetro | Padrão | Descrição |
 |---|---|---|
 | `hide` | — | Lista separada por vírgula: `stars,commits,contributions,prs,issues,followers` |
-| `columns` | `2` | 1, 2 ou 3 colunas |
+| `columns` | `3` | 1, 2 ou 3 colunas de tiles |
 
 ### `/donut` e `/langs`
 
@@ -354,9 +366,10 @@ src/
   render/
     themes.js            tokens de cor + luminância do fundo
     card.js              casca comum (borda, título, animações)
-    legend.js            legenda com ícone, compartilhada por donut e langs
+    legend.js            legenda compacta + markerFor(), o ícone com fallback
+    glyphs.js            GERADO: glifos do Octicons (estrela, commit, PR…)
     icon-map.js          linguagem do GitHub → arquivo do skill-icons
-    icon-data.js         GERADO: ícones em base64
+    icon-data.js         GERADO: ícones de linguagem em base64
     stats-card.js
     donut-card.js        ← o card assinatura
     langs-card.js
@@ -374,22 +387,34 @@ docs/                    imagens de exemplo deste README
 
 1. Crie `src/render/meu-card.js` exportando uma função que devolve string SVG.
    Use o helper `card()` para a casca — assim herda borda, título e animações.
-   Se o card listar linguagens, use `legend()` (`src/render/legend.js`) em vez de
-   escrever a lista à mão: ele já traz ícone, fallback e alinhamento.
+   Para o marcador de uma linguagem use `markerFor()` (`src/render/legend.js`),
+   que resolve ícone com fallback para quadrado colorido; para glifos de interface,
+   `glyph()` (`src/render/glyphs.js`).
 2. Registre o tipo em `handle()` (`src/handler.js`).
 3. Acrescente a rota em `server.js`, no conjunto `KINDS`.
 
 ## Notas de design
 
-- **Assinatura:** o anel usa gaps reais de 3px entre segmentos. Repositórios são
+- **Assinatura:** o anel usa gaps reais de 4px entre segmentos. Repositórios são
   unidades discretas, não uma proporção contínua — o gráfico trata cada linguagem
-  como peça separável em vez de fatia de pizza.
+  como peça separável em vez de fatia de pizza. A legenda em pílulas repete a ideia:
+  cada linguagem é um bloco, não uma linha de uma lista.
+- **Cor identifica, não necessariamente se lê.** O amarelo do JavaScript tem 1,16:1
+  de contraste sobre fundo claro. Onde a cor da linguagem vira **texto**, ela passa
+  por `readableOn()` (`src/colors.js`), que puxa a luminosidade até 4,5:1 mantendo o
+  matiz. Ícones, pontos e barras seguem com a cor original — não são texto e não
+  precisam do mesmo limite.
+- **Marcador de largura fixa:** ícone e quadrado colorido ocupam a mesma caixa. Uma
+  legenda que mistura os dois — porque nem toda linguagem tem ícone — mantém a coluna
+  de texto alinhada, em vez de serrilhar.
+- **O brilho do anel só existe no tema escuro.** No claro ele vira sujeira cinzenta.
+  Quem decide é `isDarkTheme()`, pela luminância do fundo — não pelo nome do tema,
+  para que um `bg_color` sobrescrito também acerte.
+- **O rodapé mostra a data, não "agora".** O SVG fica commitado no repositório;
+  "atualizado agora" seria mentira uma hora depois.
 - As animações usam `animation-fill-mode: backwards`, não `forwards` com
   `opacity: 0`. Em qualquer renderizador que ignore CSS animation, o card aparece
   completo em vez de invisível.
-- **Marcador de largura fixa:** ícone e quadrado colorido ocupam o mesmo slot de 14px.
-  Uma legenda que mistura os dois — porque nem toda linguagem tem ícone — mantém a
-  coluna de texto alinhada, em vez de serrilhar.
 - `prefers-reduced-motion` desliga o movimento.
 - Todo hex vem de `render/themes.js`. Nenhuma cor nasce dentro de um render.
 
@@ -398,5 +423,6 @@ docs/                    imagens de exemplo deste README
 ## Créditos
 
 - Ícones das linguagens: [tandpfun/skill-icons](https://github.com/tandpfun/skill-icons) — MIT
+- Glifos de interface: [primer/octicons](https://github.com/primer/octicons) — MIT
 - Cores das linguagens: paleta do [Linguist](https://github.com/github-linguist/linguist) — MIT
 - Inspiração: [anuraghazra/github-readme-stats](https://github.com/anuraghazra/github-readme-stats)

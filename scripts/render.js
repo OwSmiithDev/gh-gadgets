@@ -29,7 +29,7 @@ const args = Object.fromEntries(
 
 const user = args.user || process.env.GH_USER;
 if (!user) {
-  console.error("Uso: node scripts/render.js --user=SEU_LOGIN [--out=assets] [--theme=obsidian] [--suffix=-light]");
+  console.error("Uso: node scripts/render.js --user=SEU_LOGIN [--out=assets] [--theme=obsidian] [--suffix=-light] [--width=760]");
   process.exit(1);
 }
 
@@ -39,11 +39,16 @@ const outDir = args.out || "assets";
 const suffix = args.suffix || "";
 const extra = (name) => Object.fromEntries(new URLSearchParams(args[name] || ""));
 
+// Mesma faixa que o handler aceita em card_width, para a rota do Actions e a
+// rota HTTP não divergirem no que consideram largura válida.
+const clampWidth = (v) => Math.min(1100, Math.max(520, Number(v) || 760));
+
 const base = {
   theme: resolveTheme(args.theme || "obsidian"),
   locale: args.locale || "pt-BR",
   hideBorder: args.hide_border === "true",
   disableAnimations: args.disable_animations === "true",
+  width: clampWidth(args.width),
 };
 
 let stats, repos;
@@ -94,13 +99,17 @@ const files = {
   [`stats${suffix}.svg`]: renderStatsCard(stats, base),
   [`donut${suffix}.svg`]: renderDonutCard(langsForDonut, {
     ...base,
+    width: clampWidth(donutOpts.card_width || args.width),
     centerValue,
     centerLabel:
       donutOpts.center_label ||
       { stars: "Estrelas", contributions: "Contribuições", code: "Com código" }[donutOpts.center] ||
       "Repositórios",
   }),
-  [`langs${suffix}.svg`]: renderLangsCard(langsForBar, base),
+  [`langs${suffix}.svg`]: renderLangsCard(langsForBar, {
+    ...base,
+    width: clampWidth(langsOpts.card_width || args.width),
+  }),
 };
 
 for (const [name, svg] of Object.entries(files)) {
