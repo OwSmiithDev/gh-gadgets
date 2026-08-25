@@ -1,4 +1,4 @@
-# gh-gadgets
+# GH-Gadgets By [Smiith](https://github.com/OwSmiithDev)
 
 Gadgets SVG dinâmicos para README do GitHub — no espírito do `github-readme-stats`,
 mas **sem nenhuma dependência**: só Node 18+ e a API GraphQL do GitHub.
