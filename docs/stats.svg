@@ -1,0 +1,53 @@
+<svg width="495" height="168" viewBox="0 0 495 168"
+     xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Estatísticas de Ana Ribeiro de Albuquerque">
+  <style>
+    .t-title   { font: 600 15px 'Segoe UI', -apple-system, BlinkMacSystemFont, Ubuntu, 'Helvetica Neue', Helvetica, sans-serif; fill: #58a6ff; }
+    .t-label   { font: 400 13px 'Segoe UI', -apple-system, BlinkMacSystemFont, Ubuntu, 'Helvetica Neue', Helvetica, sans-serif; fill: #8b949e; }
+    .t-value   { font: 600 13px 'Segoe UI', -apple-system, BlinkMacSystemFont, Ubuntu, 'Helvetica Neue', Helvetica, sans-serif; fill: #e6edf3;
+                 font-variant-numeric: tabular-nums; }
+    .t-big     { font: 700 26px 'Segoe UI', -apple-system, BlinkMacSystemFont, Ubuntu, 'Helvetica Neue', Helvetica, sans-serif; fill: #e6edf3;
+                 font-variant-numeric: tabular-nums; }
+    .t-eyebrow { font: 600 9px 'Segoe UI', -apple-system, BlinkMacSystemFont, Ubuntu, 'Helvetica Neue', Helvetica, sans-serif; fill: #8b949e;
+                 letter-spacing: 0.09em; }
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade { animation: fade-up 0.5s ease-out backwards; }
+    @media (prefers-reduced-motion: reduce) {
+      .fade { animation: none; }
+    }
+  </style>
+
+  <rect width="495" height="168" rx="10" fill="#0d1117" />
+  <rect x="0.5" y="0.5" width="494" height="167" rx="10"
+          fill="none" stroke="#30363d" />
+  <text x="25" y="41" class="t-title">Estatísticas de Ana Ribeiro de Albuquerque</text>
+
+  <g transform="translate(25, 59)">
+    <g transform="translate(0.0, 12)" class="fade" style="animation-delay:0ms">
+        <text x="0" y="0" class="t-label">Estrelas</text>
+        <text x="213.5" y="0" class="t-value" text-anchor="end">8.479</text>
+      </g>
+    <g transform="translate(231.5, 12)" class="fade" style="animation-delay:90ms">
+        <text x="0" y="0" class="t-label">Contribuições</text>
+        <text x="213.5" y="0" class="t-value" text-anchor="end">2.841</text>
+      </g>
+    <g transform="translate(0.0, 40)" class="fade" style="animation-delay:180ms">
+        <text x="0" y="0" class="t-label">Commits</text>
+        <text x="213.5" y="0" class="t-value" text-anchor="end">2.369</text>
+      </g>
+    <g transform="translate(231.5, 40)" class="fade" style="animation-delay:270ms">
+        <text x="0" y="0" class="t-label">Pull requests</text>
+        <text x="213.5" y="0" class="t-value" text-anchor="end">337</text>
+      </g>
+    <g transform="translate(0.0, 68)" class="fade" style="animation-delay:360ms">
+        <text x="0" y="0" class="t-label">Issues</text>
+        <text x="213.5" y="0" class="t-value" text-anchor="end">310</text>
+      </g>
+    <g transform="translate(231.5, 68)" class="fade" style="animation-delay:450ms">
+        <text x="0" y="0" class="t-label">Seguidores</text>
+        <text x="213.5" y="0" class="t-value" text-anchor="end">1.284</text>
+      </g>
+  </g>
+</svg>

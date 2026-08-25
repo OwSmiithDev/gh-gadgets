@@ -1,0 +1,15 @@
+# Normaliza tudo para LF no repositório, independentemente do SO de quem commita.
+# Sem isto, um clone no Windows grava CRLF e os blocos `run: |` do workflow chegam
+# ao bash do runner Linux com \r no fim de cada linha — o erro clássico
+# "$'\r': command not found".
+* text=auto eol=lf
+
+# Binários: nunca tocar.
+*.png binary
+*.jpg binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+
+# SVG é texto, mas o icon-data.js é gerado — marcar reduz ruído no diff.
+src/render/icon-data.js linguist-generated=true -diff

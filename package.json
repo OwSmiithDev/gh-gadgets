@@ -1,0 +1,16 @@
+{
+  "name": "gh-gadgets",
+  "version": "1.0.0",
+  "description": "Gadgets SVG dinâmicos para README do GitHub, sem dependências",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": "22.x"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "preview": "node scripts/preview.js",
+    "render": "node scripts/render.js"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,61 @@
+name: Atualizar cards
+
+on:
+  schedule:
+    # 06:00 e 18:00 UTC = 03:00 e 15:00 em Brasília.
+    # Cron do GitHub Actions atrasa em horários redondos por causa da fila;
+    # minutos "quebrados" (:17) costumam rodar bem mais perto do previsto.
+    - cron: "17 6,18 * * *"
+  workflow_dispatch: # botão "Run workflow" na aba Actions
+  push:
+    branches: [main]
+
+# Necessário para o passo de commit conseguir escrever no repositório.
+permissions:
+  contents: write
+
+concurrency:
+  group: cards
+  cancel-in-progress: true
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Gerar os SVGs (tema escuro)
+        env:
+          PAT_1: ${{ secrets.PAT_1 }}
+        run: |
+          node scripts/render.js \
+            --user=${{ github.repository_owner }} \
+            --out=assets \
+            --theme=obsidian \
+            --donut="count_mode=repo&center=repos"
+
+      # Segundo passe na mesma pasta, com sufixo: alimenta o <picture> do README,
+      # que troca a imagem conforme o tema de quem está lendo.
+      - name: Gerar os SVGs (tema claro)
+        env:
+          PAT_1: ${{ secrets.PAT_1 }}
+        run: |
+          node scripts/render.js \
+            --user=${{ github.repository_owner }} \
+            --out=assets \
+            --theme=paper \
+            --suffix=-light \
+            --donut="count_mode=repo&center=repos"
+
+      - name: Commitar se algo mudou
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/
+          # Sem mudança nos números, não gera commit vazio.
+          git diff --staged --quiet || git commit -m "chore: atualiza cards [skip ci]"
+          git push

@@ -1,0 +1,15 @@
+# A Vercel captura automaticamente um server.js na raiz que chame
+# server.listen() e transforma ELE na função — o que competiria com os
+# handlers de api/ e tornaria os rewrites deste projeto imprevisíveis.
+# server.js aqui é só o servidor de desenvolvimento local; fora do deploy.
+server.js
+
+# Nada disso é importado por api/ em runtime.
+scripts/
+docs/
+preview/
+assets/
+assets-light/
+.github/
+README.md
+.env*

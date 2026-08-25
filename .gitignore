@@ -1,0 +1,69 @@
+# ─── Dependências ───────────────────────────────────────────────────────────
+node_modules/
+.pnp
+.pnp.js
+
+# ─── Segredos ───────────────────────────────────────────────────────────────
+# .env guarda PAT_1. Nunca versione.
+# Se um token já foi commitado, apagar o arquivo NÃO resolve: ele continua no
+# histórico e em qualquer fork/clone. Revogue o token no GitHub e gere outro.
+.env
+.env.*
+!.env.example
+
+# Chaves e certificados, caso algum dia entrem no projeto
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+
+# ─── Saída de renderização ──────────────────────────────────────────────────
+preview/
+assets/
+assets-light/
+# ATENÇÃO: no repositório do seu PERFIL (SEU_USER/SEU_USER) a pasta assets/
+# PRECISA ser versionada — é ela que o README referencia e que o Actions
+# commita a cada execução. Remova a linha "assets/" acima ao copiar para lá.
+#
+# Nota: docs/*.svg é versionado de propósito — são os previews deste README,
+# gerados com dados falsos por `node scripts/preview.js obsidian docs`.
+
+# ─── Plataformas de deploy ──────────────────────────────────────────────────
+.vercel
+.netlify
+.wrangler/
+# .vercelignore é configuração e DEVE ser versionado — é ele que mantém o
+# server.js de desenvolvimento fora do deploy.
+
+# ─── Logs e diagnóstico ─────────────────────────────────────────────────────
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+coverage/
+.nyc_output/
+
+# ─── Temporários ────────────────────────────────────────────────────────────
+tmp/
+temp/
+*.tmp
+*.bak
+*.orig
+
+# ─── Editores ───────────────────────────────────────────────────────────────
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*~
+
+# ─── Sistema operacional ────────────────────────────────────────────────────
+.DS_Store
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
