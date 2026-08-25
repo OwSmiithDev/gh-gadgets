@@ -10,6 +10,7 @@ docs/
 preview/
 assets/
 assets-light/
+templates/
 .github/
 README.md
 .env*

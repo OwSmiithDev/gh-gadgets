@@ -155,8 +155,14 @@ serve arquivos do repositório direto, e um `git push` invalida o cache na hora.
 
 Montagem:
 
-1. Copie `scripts/`, `src/`, `package.json` e `.github/workflows/cards.yml`
-   para dentro do repositório `SEU_USER/SEU_USER`.
+1. Copie `scripts/`, `src/` e `package.json` para dentro do repositório
+   `SEU_USER/SEU_USER`, e `templates/cards.yml` para
+   `.github/workflows/cards.yml` **lá**.
+
+   O workflow mora em `templates/` aqui de propósito: neste repositório `assets/`
+   é ignorado (é saída de teste), e o passo `git add assets/` sairia com código 1,
+   deixando o Actions vermelho sem motivo. No repositório do perfil `assets/` é
+   versionado, e aí o mesmo arquivo funciona.
 2. **Settings → Secrets and variables → Actions → New repository secret**
    → nome `PAT_1`, valor do seu token.
 3. **Settings → Actions → General → Workflow permissions** → marque
@@ -365,7 +371,7 @@ scripts/preview.js       render com dados falsos, sem token
 scripts/render.js        CLI que grava os SVGs em disco (usado pelo Actions)
 scripts/fetch-icons.js   baixa os ícones e regrava icon-data.js
 scripts/mock-data.js     dados falsos compartilhados
-.github/workflows/       agendamento que regenera e commita os cards
+templates/cards.yml      workflow para copiar ao repo do perfil
 vercel.json              rewrites de /stats, /donut, /langs
 docs/                    imagens de exemplo deste README
 ```
