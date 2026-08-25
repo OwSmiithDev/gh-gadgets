@@ -26,7 +26,7 @@ const outDir = process.argv[3] || "preview";
 mkdirSync(outDir, { recursive: true });
 
 const files = {
-  "stats.svg": renderStatsCard(stats, { ...base, width: 495 }),
+  "stats.svg": renderStatsCard(stats, base),
   "donut.svg": renderDonutCard(topLanguages(repos, { limit: 6, mode: "repo" }), {
     ...base,
     centerValue: reposWithCode(repos),

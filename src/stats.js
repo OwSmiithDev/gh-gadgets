@@ -52,7 +52,7 @@ export function topLanguages(repos, opts = {}) {
     mode = "bytes",
     exclude = [],
     includeArchived = true,
-    groupOthers = true,
+    groupOthers = false,
   } = opts;
 
   const skip = new Set(exclude.map((s) => String(s).toLowerCase()));
@@ -94,7 +94,8 @@ export function topLanguages(repos, opts = {}) {
     const rest = tail.reduce((sum, l) => sum + l.value, 0);
     result.push({ name: "Outras", color: OTHERS_COLOR, percent: (rest / grandTotal) * 100 });
   } else if (tail.length) {
-    // Sem a fatia "Outras", renormaliza para o anel continuar fechando em 100%.
+    // Sem a fatia "Outras", renormaliza: as linguagens mostradas passam a ser
+    // o universo, e os percentuais precisam voltar a fechar em 100%.
     const headTotal = head.reduce((sum, l) => sum + l.value, 0);
     for (const l of result) l.percent = (l.percent * grandTotal) / headTotal;
   }

@@ -91,7 +91,7 @@ const centerValue =
 mkdirSync(outDir, { recursive: true });
 
 const files = {
-  [`stats${suffix}.svg`]: renderStatsCard(stats, { ...base, width: 495 }),
+  [`stats${suffix}.svg`]: renderStatsCard(stats, base),
   [`donut${suffix}.svg`]: renderDonutCard(langsForDonut, {
     ...base,
     centerValue,

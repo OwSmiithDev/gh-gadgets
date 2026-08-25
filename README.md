@@ -304,7 +304,7 @@ Cores individuais (hex sem `#`) sobrescrevem o tema:
 | `langs_count` | `6` | Quantas linguagens listar (1–10) |
 | `exclude_langs` | — | Ex.: `html,css,scss` |
 | `count_mode` | `bytes` | `bytes` = peso de código real; `repo` = 1 voto por repositório (linguagem principal) |
-| `hide_others` | `false` | Some com a fatia "Outras" |
+| `show_others` | `false` | Acrescenta a fatia "Outras" com a cauda longa. Sem ela, os percentuais das linguagens mostradas renormalizam para somar 100% |
 | `hide_archived` | `false` | Ignora repositórios arquivados |
 
 Exclusivos do `/donut`:

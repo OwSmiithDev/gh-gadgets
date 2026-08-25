@@ -33,7 +33,7 @@ function langOptions(q) {
     exclude: parseList(q.exclude_langs),
     mode: q.count_mode === "repo" ? "repo" : "bytes",
     includeArchived: !parseBool(q.hide_archived),
-    groupOthers: !parseBool(q.hide_others),
+    groupOthers: parseBool(q.show_others),
   };
 }
 
@@ -80,13 +80,13 @@ export async function handle(kind, query) {
     if (kind === "stats") {
       svg = renderStatsCard(stats, {
         ...opts,
-        width: clamp(width || 495, 320, 800),
+        width: clamp(width || 760, 520, 1100),
         hide: parseList(query.hide),
-        columns: clamp(parseInt(query.columns, 10) || 2, 1, 3),
+        columns: clamp(parseInt(query.columns, 10) || 3, 1, 3),
       });
     } else if (kind === "langs") {
       const langs = topLanguages(repos, langOptions(query));
-      svg = renderLangsCard(langs, { ...opts, width: clamp(width || 340, 280, 600) });
+      svg = renderLangsCard(langs, { ...opts, width: clamp(width || 760, 520, 1100) });
     } else if (kind === "donut") {
       const langs = topLanguages(repos, langOptions(query));
       const centerMode = query.center || "repos";
