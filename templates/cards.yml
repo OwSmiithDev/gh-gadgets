@@ -55,7 +55,27 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # O checkout aconteceu antes da renderização. Se alguém empurrou nesse
+          # meio-tempo, o push seria recusado com "fetch first" — traz o que
+          # entrou antes de commitar, com os SVGs recém-gerados guardados.
+          git pull --rebase --autostash origin "${GITHUB_REF_NAME}"
+
           git add assets/
           # Sem mudança nos números, não gera commit vazio.
-          git diff --staged --quiet || git commit -m "chore: atualiza cards [skip ci]"
-          git push
+          if git diff --staged --quiet; then
+            echo "Nenhuma mudança nos cards."
+            exit 0
+          fi
+          git commit -m "chore: atualiza cards [skip ci]"
+
+          # Ainda dá para perder a corrida entre o pull e o push.
+          for tentativa in 1 2 3; do
+            if git push; then
+              exit 0
+            fi
+            echo "Push recusado; rebase e nova tentativa ($tentativa/3)."
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+          done
+          echo "Push falhou após 3 tentativas."
+          exit 1
