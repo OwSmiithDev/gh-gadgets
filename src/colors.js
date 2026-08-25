@@ -100,3 +100,63 @@ export function languageColor(name, apiColor) {
 
 /** Cinza neutro da fatia "Outras" - vem do tema, nao de uma linguagem. */
 export const OTHERS_COLOR = "#8b949e";
+
+
+// ─── Contraste ──────────────────────────────────────────────────────────────
+// A cor da linguagem serve para IDENTIFICAR, nao necessariamente para ler.
+// O amarelo do JavaScript e o rosa do Gleam somem sobre fundo claro. Como o
+// percentual e texto, ele precisa passar em contraste - entao a cor e puxada
+// ate ficar legivel, mantendo o matiz para nao perder a associacao visual.
+
+function toRgb(hex) {
+  const h = String(hex).replace("#", "").slice(0, 6);
+  const full = h.length === 3 ? h.split("").map((c) => c + c).join("") : h.padEnd(6, "0");
+  return [0, 2, 4].map((i) => parseInt(full.slice(i, i + 2), 16) / 255);
+}
+
+function relLuminance(hex) {
+  const lin = (c) => (c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4);
+  const [r, g, b] = toRgb(hex).map(lin);
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+}
+
+/** Razao de contraste WCAG entre duas cores (1 a 21). */
+export function contrastRatio(a, b) {
+  const [x, y] = [relLuminance(a), relLuminance(b)].sort((m, n) => n - m);
+  return (x + 0.05) / (y + 0.05);
+}
+
+function toHsl(hex) {
+  const [r, g, b] = toRgb(hex);
+  const max = Math.max(r, g, b), min = Math.min(r, g, b);
+  const l = (max + min) / 2;
+  const d = max - min;
+  if (!d) return [0, 0, l * 100];
+  const s = d / (1 - Math.abs(2 * l - 1));
+  let h;
+  if (max === r) h = ((g - b) / d) % 6;
+  else if (max === g) h = (b - r) / d + 2;
+  else h = (r - g) / d + 4;
+  return [((h * 60) + 360) % 360, s * 100, l * 100];
+}
+
+/**
+ * Devolve `color` ajustada em luminosidade ate atingir `min` de contraste
+ * contra `bg`. Escurece sobre fundo claro, clareia sobre fundo escuro.
+ * Se nem o extremo resolver, entrega o extremo - melhor que ilegivel.
+ */
+export function readableOn(color, bg, min = 4.5) {
+  if (contrastRatio(color, bg) >= min) return color;
+
+  const [h, sat] = toHsl(color);
+  const darken = relLuminance(bg) > 0.18;
+  const start = toHsl(color)[2];
+
+  for (let step = 1; step <= 20; step++) {
+    const l = darken ? start - step * 4 : start + step * 4;
+    if (l < 0 || l > 100) break;
+    const candidate = hslToHex(h, sat, l);
+    if (contrastRatio(candidate, bg) >= min) return candidate;
+  }
+  return hslToHex(h, sat, darken ? 12 : 94);
+}

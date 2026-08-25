@@ -106,7 +106,7 @@ export async function handle(kind, query) {
       svg = renderDonutCard(langs, {
         ...opts,
         title: opts.title || "Linguagens por repositório",
-        width: clamp(width || 340, 280, 600),
+        width: clamp(width || 760, 520, 1100),
         centerValue,
         centerLabel,
         ringWidth: clamp(parseInt(query.ring_width, 10) || 20, 8, 40),

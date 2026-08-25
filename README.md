@@ -284,7 +284,7 @@ linguagem do Terraform), `PLpgSQL` → PostgreSQL, `Blade` → Laravel.
 | `hide_title` | `false` | Remove o título |
 | `hide_border` | `false` | Remove a borda |
 | `disable_animations` | `false` | Desliga o fade-in |
-| `card_width` | varia | Largura em px |
+| `card_width` | varia | Largura em px. `/donut` aceita 520–1100 (layout horizontal); `/langs`, 280–600 |
 | `locale` | `pt-BR` | `pt-BR` usa vírgula decimal; `en` usa ponto |
 | `cache_seconds` | `1800` | Entre 1800 e 86400 |
 
@@ -318,7 +318,7 @@ Exclusivos do `/donut`:
 |---|---|---|
 | `center` | `repos` | O que aparece no centro: `repos`, `code` (repos com linguagem detectada), `stars`, `contributions` |
 | `center_label` | auto | Texto sob o número |
-| `ring_width` | `20` | Espessura do anel (8–40) |
+| `ring_width` | `26` | Espessura do anel (8–40) |
 
 **Dica sobre `count_mode`:** por bytes, um único repositório grande domina o gráfico —
 um projeto com muito CSS minificado vira "CSS developer". `count_mode=repo` conta uma

@@ -40,11 +40,7 @@ export function legend(langs, opts = {}) {
       const pctW = textWidth(`${pct}%`, 12, 600);
       const label = truncate(l.name, colW - textX - pctW - 18, 12, 400);
 
-      const icon = iconFor(l.name, theme);
-      const marker = icon
-        ? `<image x="0" y="${-SLOT + 3}" width="${SLOT}" height="${SLOT}" href="${icon}"
-          preserveAspectRatio="xMidYMid meet" />`
-        : `<rect x="${(SLOT - 9) / 2}" y="-8" width="9" height="9" rx="2" fill="${l.color}" />`;
+      const marker = markerFor(l, theme, SLOT, -SLOT + 3);
 
       return `<g transform="translate(${x.toFixed(1)}, ${y})" class="fade"${stagger(i + staggerFrom, disableAnimations)}>
         ${marker}
@@ -62,4 +58,24 @@ export function legend(langs, opts = {}) {
       .t-legend-val { font: 600 12px ${FONT_STACK}; fill: ${theme.text};
                       font-variant-numeric: tabular-nums; }`,
   };
+}
+
+/**
+ * Marcador de uma linguagem: o icone do skill-icons quando existe, senao um
+ * quadrado na cor dela. Compartilhado pelos cards para que a regra de fallback
+ * viva num lugar so.
+ *
+ * Os dois ocupam a mesma caixa `size`, entao trocar um pelo outro nao desloca
+ * o que vem depois.
+ */
+export function markerFor(lang, theme, size, y) {
+  const icon = iconFor(lang.name, theme);
+  if (icon) {
+    return `<image x="0" y="${y}" width="${size}" height="${size}" href="${icon}"
+      preserveAspectRatio="xMidYMid meet" />`;
+  }
+  const box = Math.round(size * 0.64);
+  const inset = (size - box) / 2;
+  return `<rect x="${inset.toFixed(1)}" y="${(y + inset).toFixed(1)}" width="${box}" height="${box}"
+      rx="2" fill="${lang.color}" />`;
 }
