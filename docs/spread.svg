@@ -1,4 +1,4 @@
-<svg width="760" height="458" viewBox="0 0 760 458"
+<svg width="760" height="210" viewBox="0 0 760 210"
      xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Card">
   <style>
     .t-title   { font: 600 15px 'Segoe UI', -apple-system, BlinkMacSystemFont, Ubuntu, 'Helvetica Neue', Helvetica, sans-serif; fill: #58a6ff; }
@@ -19,145 +19,131 @@
     }
   </style>
 
-  <rect width="760" height="458" rx="10" fill="#0d1117" />
-  <rect x="0.5" y="0.5" width="759" height="457" rx="10"
+  <rect width="760" height="210" rx="10" fill="#0d1117" />
+  <rect x="0.5" y="0.5" width="759" height="209" rx="10"
           fill="none" stroke="#30363d" />
   
 
-  <g transform="translate(28, 28)">
+  <g transform="translate(24, 24)">
     <style>
-      .t-h1    { font: 700 20px 'Segoe UI', -apple-system, BlinkMacSystemFont, Ubuntu, 'Helvetica Neue', Helvetica, sans-serif; fill: #e6edf3; }
-      .t-total { font: 400 12.5px 'Segoe UI', -apple-system, BlinkMacSystemFont, Ubuntu, 'Helvetica Neue', Helvetica, sans-serif; fill: #8b949e; }
-      .t-name  { font: 500 14px 'Segoe UI', -apple-system, BlinkMacSystemFont, Ubuntu, 'Helvetica Neue', Helvetica, sans-serif; fill: #e6edf3; }
-      .t-count { font: 400 12.5px 'Segoe UI', -apple-system, BlinkMacSystemFont, Ubuntu, 'Helvetica Neue', Helvetica, sans-serif; fill: #8b949e;
-                 font-variant-numeric: tabular-nums; }
-      .t-pct   { font: 700 14px 'Segoe UI', -apple-system, BlinkMacSystemFont, Ubuntu, 'Helvetica Neue', Helvetica, sans-serif; font-variant-numeric: tabular-nums; }
+      .t-h1    { font: 700 17px 'Segoe UI', -apple-system, BlinkMacSystemFont, Ubuntu, 'Helvetica Neue', Helvetica, sans-serif; fill: #e6edf3; }
+      .t-total { font: 400 12px 'Segoe UI', -apple-system, BlinkMacSystemFont, Ubuntu, 'Helvetica Neue', Helvetica, sans-serif; fill: #8b949e; }
+      .t-name  { font: 500 13px 'Segoe UI', -apple-system, BlinkMacSystemFont, Ubuntu, 'Helvetica Neue', Helvetica, sans-serif; fill: #e6edf3; }
+      .t-count { font: 700 12.5px 'Segoe UI', -apple-system, BlinkMacSystemFont, Ubuntu, 'Helvetica Neue', Helvetica, sans-serif; font-variant-numeric: tabular-nums; }
     </style>
 
     <g>
-      <rect x="0" y="0" width="42" height="42" rx="11"
+      <rect x="0" y="0" width="34" height="34" rx="9"
             fill="#21262d" stroke="#58a6ff" stroke-width="1" opacity="0.9" />
-      <g transform="translate(11, 11) scale(1.2500)">
+      <g transform="translate(8.5, 8.5) scale(1.0625)">
     <path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.249.249 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z" fill="#58a6ff" />
   </g>
-      <text x="56" y="29" class="t-h1">Linguagens por alcance</text>
-      <text x="704" y="29" text-anchor="end" class="t-total">11 repositórios</text>
+      <text x="46" y="23" class="t-h1">Linguagens por alcance</text>
+      <text x="712" y="23" text-anchor="end" class="t-total">11 repositórios</text>
     </g>
 
-    <g transform="translate(0, 76)">
-      <g transform="translate(0, 0)" class="fade" style="animation-delay:0ms">
-        <g transform="translate(0, 8)">
-          <image x="0" y="0" width="30" height="30" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjU2IiBoZWlnaHQ9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2IiByeD0iNjAiIGZpbGw9IiMwMjc3QkQiLz4KPHBhdGggZD0iTTUzLjc1MjcgMTAyLjY1MUw1Ni42MTU1IDEzNC41OTNIMTI4LjA5NlYxMDIuNjUxSDUzLjc1MjdaIiBmaWxsPSIjRUJFQkVCIi8+CjxwYXRoIGQ9Ik0xMjguMDk1IDM4SDEyNy45ODVINDhMNTAuOTAzNiA2OS45NDIzSDEyOC4wOTVWMzhaIiBmaWxsPSIjRUJFQkVCIi8+CjxwYXRoIGQ9Ik0xMjguMDk1IDIxOC44NDFWMTg1LjYwOEwxMjcuOTU1IDE4NS42NDVMOTIuMzgxMyAxNzYuMDRMOTAuMTA3MiAxNTAuNTY0SDcyLjgyMUg1OC4wNDI1TDYyLjUxNzUgMjAwLjcxOEwxMjcuOTQ4IDIxOC44ODJMMTI4LjA5NSAyMTguODQxWiIgZmlsbD0iI0VCRUJFQiIvPgo8cGF0aCBkPSJNMTY3LjMxOCAxMzQuNTkzTDE2My42MSAxNzYuMDE5TDEyNy45ODUgMTg1LjYzNVYyMTguODY2TDE5My40NjggMjAwLjcxOEwxOTMuOTQ4IDE5NS4zMjFMMjAxLjQ1NCAxMTEuMjI5TDIwMi4yMzMgMTAyLjY1MUwyMDggMzhIMTI3Ljk4NVY2OS45NDIzSDE3Mi45OTRMMTcwLjA4OCAxMDIuNjUxSDEyNy45ODVWMTM0LjU5M0gxNjcuMzE4WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+"
+    <g transform="translate(0, 50)">
+      <g transform="translate(0.0, 0)" class="fade" style="animation-delay:0ms">
+        <g transform="translate(0, 5)">
+          <image x="0" y="0" width="22" height="22" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjU2IiBoZWlnaHQ9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2IiByeD0iNjAiIGZpbGw9IiMwMjc3QkQiLz4KPHBhdGggZD0iTTUzLjc1MjcgMTAyLjY1MUw1Ni42MTU1IDEzNC41OTNIMTI4LjA5NlYxMDIuNjUxSDUzLjc1MjdaIiBmaWxsPSIjRUJFQkVCIi8+CjxwYXRoIGQ9Ik0xMjguMDk1IDM4SDEyNy45ODVINDhMNTAuOTAzNiA2OS45NDIzSDEyOC4wOTVWMzhaIiBmaWxsPSIjRUJFQkVCIi8+CjxwYXRoIGQ9Ik0xMjguMDk1IDIxOC44NDFWMTg1LjYwOEwxMjcuOTU1IDE4NS42NDVMOTIuMzgxMyAxNzYuMDRMOTAuMTA3MiAxNTAuNTY0SDcyLjgyMUg1OC4wNDI1TDYyLjUxNzUgMjAwLjcxOEwxMjcuOTQ4IDIxOC44ODJMMTI4LjA5NSAyMTguODQxWiIgZmlsbD0iI0VCRUJFQiIvPgo8cGF0aCBkPSJNMTY3LjMxOCAxMzQuNTkzTDE2My42MSAxNzYuMDE5TDEyNy45ODUgMTg1LjYzNVYyMTguODY2TDE5My40NjggMjAwLjcxOEwxOTMuOTQ4IDE5NS4zMjFMMjAxLjQ1NCAxMTEuMjI5TDIwMi4yMzMgMTAyLjY1MUwyMDggMzhIMTI3Ljk4NVY2OS45NDIzSDE3Mi45OTRMMTcwLjA4OCAxMDIuNjUxSDEyNy45ODVWMTM0LjU5M0gxNjcuMzE4WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+"
       preserveAspectRatio="xMidYMid meet" />
         </g>
-        <text x="42" y="28" class="t-name">CSS</text>
+        <text x="32" y="20.5" class="t-name">CSS</text>
 
-        <rect x="199" y="18" width="401.0" height="10"
-              rx="5" fill="#21262d" />
-        <rect x="199" y="18" width="109.4" height="10"
-              rx="5" fill="#563d7c" />
+        <rect x="161.0" y="12" width="148.0"
+              height="8" rx="4" fill="#21262d" />
+        <rect x="161.0" y="12" width="40.4"
+              height="8" rx="4" fill="#563d7c" />
 
-        <text x="660.0" y="28" text-anchor="end"
-              class="t-count">3 / 11</text>
-        <text x="704" y="28" text-anchor="end"
-              class="t-pct" fill="#9377bc">27%</text>
+        <text x="345.0" y="20.5" text-anchor="end"
+              class="t-count" fill="#9377bc">3/11</text>
 
-        <title>CSS — em 3 de 11 repositórios</title>
+        <title>CSS — em 3 de 11 repositórios (27%)</title>
       </g>
-      <g transform="translate(0, 56)" class="fade" style="animation-delay:90ms">
-        <g transform="translate(0, 8)">
-          <image x="0" y="0" width="30" height="30" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2IiBmaWxsPSJub25lIiB2aWV3Qm94PSIwIDAgMjU2IDI1NiI+PHJlY3Qgd2lkdGg9IjI1NiIgaGVpZ2h0PSIyNTYiIGZpbGw9IiMwMDdBQ0MiIHJ4PSI2MCIvPjxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik01Ni42MTEyIDEyOC44NDlMNTYuNTI5OSAxMzkuMzMzSDczLjE5MDJIODkuODUwNUw4OS44NTA1IDE4Ni42NzNWMjM0LjAxMkgxMDEuNjM1SDExMy40MTlWMTg2LjY3M0wxMTMuNDE5IDEzOS4zMzNIMTMwLjA3OUgxNDYuNzM5VjEyOS4wNTJDMTQ2LjczOSAxMjMuMzYzIDE0Ni42MTggMTE4LjYwOSAxNDYuNDU1IDExOC40ODdDMTQ2LjMzMyAxMTguMzI1IDEyNi4wNTYgMTE4LjI0MyAxMDEuNDcyIDExOC4yODRMNTYuNzMzMSAxMTguNDA2TDU2LjYxMTIgMTI4Ljg0OVoiLz48cGF0aCBmaWxsPSIjZmZmIiBkPSJNMjA2LjU2NyAxMTguMTA4QzIxMy4wNjggMTE5LjczNCAyMTguMDI2IDEyMi42MTkgMjIyLjU3NyAxMjcuMzMyQzIyNC45MzQgMTI5Ljg1MiAyMjguNDI4IDEzNC40NDQgMjI4LjcxMyAxMzUuNTQxQzIyOC43OTQgMTM1Ljg2NiAyMTcuNjYgMTQzLjM0MyAyMTAuOTE1IDE0Ny41MjhDMjEwLjY3MSAxNDcuNjkxIDIwOS42OTUgMTQ2LjYzNCAyMDguNTk4IDE0NS4wMDlDMjA1LjMwNyAxNDAuMjE0IDIwMS44NTMgMTM4LjE0MSAxOTYuNTcgMTM3Ljc3NkMxODguODA5IDEzNy4yNDcgMTgzLjgxMSAxNDEuMzExIDE4My44NTIgMTQ4LjA5N0MxODMuODUyIDE1MC4wODggMTg0LjEzNiAxNTEuMjY2IDE4NC45NDkgMTUyLjg5MkMxODYuNjU1IDE1Ni40MjcgMTg5LjgyNSAxNTguNTQgMTk5Ljc4MSAxNjIuODQ3QzIxOC4xMDcgMTcwLjczMSAyMjUuOTQ5IDE3NS45MzIgMjMwLjgyNiAxODMuMzI3QzIzNi4yNzEgMTkxLjU3NiAyMzcuNDkgMjA0Ljc0MiAyMzMuNzkyIDIxNC41MzVDMjI5LjcyOSAyMjUuMTgxIDIxOS42NTEgMjMyLjQxNCAyMDUuNDY5IDIzNC44MTJDMjAxLjA4MSAyMzUuNTg0IDE5MC42NzggMjM1LjQ2MiAxODUuOTY1IDIzNC42MDlDMTc1LjY4NCAyMzIuNzggMTY1LjkzMiAyMjcuNzAxIDE1OS45MTggMjIxLjAzN0MxNTcuNTYxIDIxOC40MzYgMTUyLjk2OSAyMTEuNjUgMTUzLjI1NCAyMTEuMTYyQzE1My4zNzUgMjExIDE1NC40MzIgMjEwLjM1IDE1NS42MSAyMDkuNjU5QzE1Ni43NDggMjA5LjAwOSAxNjEuMDU2IDIwNi41MyAxNjUuMTE5IDIwNC4xNzNMMTcyLjQ3NCAxOTkuOTA2TDE3NC4wMTggMjAyLjE4MkMxNzYuMTcyIDIwNS40NzMgMTgwLjg4NSAyMDkuOTg0IDE4My43MyAyMTEuNDg3QzE5MS44OTcgMjE1Ljc5NSAyMDMuMTEzIDIxNS4xODUgMjA4LjYzOSAyMTAuMjI4QzIxMC45OTYgMjA4LjA3NCAyMTEuOTcxIDIwNS44MzkgMjExLjk3MSAyMDIuNTQ4QzIxMS45NzEgMTk5LjU4MSAyMTEuNjA1IDE5OC4yODEgMjEwLjA2MSAxOTYuMDQ2QzIwOC4wNyAxOTMuMjAyIDIwNC4wMDcgMTkwLjgwNCAxOTIuNDY2IDE4NS44MDZDMTc5LjI2IDE4MC4xMTcgMTczLjU3MSAxNzYuNTgyIDE2OC4zNyAxNzAuOTc0QzE2NS4zNjMgMTY3LjcyNCAxNjIuNTE4IDE2Mi41MjIgMTYxLjM0IDE1OC4xNzRDMTYwLjM2NSAxNTQuNTU4IDE2MC4xMjEgMTQ1LjQ5NiAxNjAuODkzIDE0MS44MzlDMTYzLjYxNSAxMjkuMDggMTczLjI0NiAxMjAuMTgxIDE4Ny4xNDMgMTE3LjUzOUMxOTEuNjU0IDExNi42ODYgMjAyLjEzNyAxMTcuMDExIDIwNi41NjcgMTE4LjEwOFoiLz48L3N2Zz4="
+      <g transform="translate(0.0, 40)" class="fade" style="animation-delay:90ms">
+        <g transform="translate(0, 5)">
+          <image x="0" y="0" width="22" height="22" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2IiBmaWxsPSJub25lIiB2aWV3Qm94PSIwIDAgMjU2IDI1NiI+PHJlY3Qgd2lkdGg9IjI1NiIgaGVpZ2h0PSIyNTYiIGZpbGw9IiMwMDdBQ0MiIHJ4PSI2MCIvPjxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik01Ni42MTEyIDEyOC44NDlMNTYuNTI5OSAxMzkuMzMzSDczLjE5MDJIODkuODUwNUw4OS44NTA1IDE4Ni42NzNWMjM0LjAxMkgxMDEuNjM1SDExMy40MTlWMTg2LjY3M0wxMTMuNDE5IDEzOS4zMzNIMTMwLjA3OUgxNDYuNzM5VjEyOS4wNTJDMTQ2LjczOSAxMjMuMzYzIDE0Ni42MTggMTE4LjYwOSAxNDYuNDU1IDExOC40ODdDMTQ2LjMzMyAxMTguMzI1IDEyNi4wNTYgMTE4LjI0MyAxMDEuNDcyIDExOC4yODRMNTYuNzMzMSAxMTguNDA2TDU2LjYxMTIgMTI4Ljg0OVoiLz48cGF0aCBmaWxsPSIjZmZmIiBkPSJNMjA2LjU2NyAxMTguMTA4QzIxMy4wNjggMTE5LjczNCAyMTguMDI2IDEyMi42MTkgMjIyLjU3NyAxMjcuMzMyQzIyNC45MzQgMTI5Ljg1MiAyMjguNDI4IDEzNC40NDQgMjI4LjcxMyAxMzUuNTQxQzIyOC43OTQgMTM1Ljg2NiAyMTcuNjYgMTQzLjM0MyAyMTAuOTE1IDE0Ny41MjhDMjEwLjY3MSAxNDcuNjkxIDIwOS42OTUgMTQ2LjYzNCAyMDguNTk4IDE0NS4wMDlDMjA1LjMwNyAxNDAuMjE0IDIwMS44NTMgMTM4LjE0MSAxOTYuNTcgMTM3Ljc3NkMxODguODA5IDEzNy4yNDcgMTgzLjgxMSAxNDEuMzExIDE4My44NTIgMTQ4LjA5N0MxODMuODUyIDE1MC4wODggMTg0LjEzNiAxNTEuMjY2IDE4NC45NDkgMTUyLjg5MkMxODYuNjU1IDE1Ni40MjcgMTg5LjgyNSAxNTguNTQgMTk5Ljc4MSAxNjIuODQ3QzIxOC4xMDcgMTcwLjczMSAyMjUuOTQ5IDE3NS45MzIgMjMwLjgyNiAxODMuMzI3QzIzNi4yNzEgMTkxLjU3NiAyMzcuNDkgMjA0Ljc0MiAyMzMuNzkyIDIxNC41MzVDMjI5LjcyOSAyMjUuMTgxIDIxOS42NTEgMjMyLjQxNCAyMDUuNDY5IDIzNC44MTJDMjAxLjA4MSAyMzUuNTg0IDE5MC42NzggMjM1LjQ2MiAxODUuOTY1IDIzNC42MDlDMTc1LjY4NCAyMzIuNzggMTY1LjkzMiAyMjcuNzAxIDE1OS45MTggMjIxLjAzN0MxNTcuNTYxIDIxOC40MzYgMTUyLjk2OSAyMTEuNjUgMTUzLjI1NCAyMTEuMTYyQzE1My4zNzUgMjExIDE1NC40MzIgMjEwLjM1IDE1NS42MSAyMDkuNjU5QzE1Ni43NDggMjA5LjAwOSAxNjEuMDU2IDIwNi41MyAxNjUuMTE5IDIwNC4xNzNMMTcyLjQ3NCAxOTkuOTA2TDE3NC4wMTggMjAyLjE4MkMxNzYuMTcyIDIwNS40NzMgMTgwLjg4NSAyMDkuOTg0IDE4My43MyAyMTEuNDg3QzE5MS44OTcgMjE1Ljc5NSAyMDMuMTEzIDIxNS4xODUgMjA4LjYzOSAyMTAuMjI4QzIxMC45OTYgMjA4LjA3NCAyMTEuOTcxIDIwNS44MzkgMjExLjk3MSAyMDIuNTQ4QzIxMS45NzEgMTk5LjU4MSAyMTEuNjA1IDE5OC4yODEgMjEwLjA2MSAxOTYuMDQ2QzIwOC4wNyAxOTMuMjAyIDIwNC4wMDcgMTkwLjgwNCAxOTIuNDY2IDE4NS44MDZDMTc5LjI2IDE4MC4xMTcgMTczLjU3MSAxNzYuNTgyIDE2OC4zNyAxNzAuOTc0QzE2NS4zNjMgMTY3LjcyNCAxNjIuNTE4IDE2Mi41MjIgMTYxLjM0IDE1OC4xNzRDMTYwLjM2NSAxNTQuNTU4IDE2MC4xMjEgMTQ1LjQ5NiAxNjAuODkzIDE0MS44MzlDMTYzLjYxNSAxMjkuMDggMTczLjI0NiAxMjAuMTgxIDE4Ny4xNDMgMTE3LjUzOUMxOTEuNjU0IDExNi42ODYgMjAyLjEzNyAxMTcuMDExIDIwNi41NjcgMTE4LjEwOFoiLz48L3N2Zz4="
       preserveAspectRatio="xMidYMid meet" />
         </g>
-        <text x="42" y="28" class="t-name">TypeScript</text>
+        <text x="32" y="20.5" class="t-name">TypeScript</text>
 
-        <rect x="199" y="18" width="401.0" height="10"
-              rx="5" fill="#21262d" />
-        <rect x="199" y="18" width="109.4" height="10"
-              rx="5" fill="#3178c6" />
+        <rect x="161.0" y="12" width="148.0"
+              height="8" rx="4" fill="#21262d" />
+        <rect x="161.0" y="12" width="40.4"
+              height="8" rx="4" fill="#3178c6" />
 
-        <text x="660.0" y="28" text-anchor="end"
-              class="t-count">3 / 11</text>
-        <text x="704" y="28" text-anchor="end"
-              class="t-pct" fill="#3d82cf">27%</text>
+        <text x="345.0" y="20.5" text-anchor="end"
+              class="t-count" fill="#3d82cf">3/11</text>
 
-        <title>TypeScript — em 3 de 11 repositórios</title>
+        <title>TypeScript — em 3 de 11 repositórios (27%)</title>
       </g>
-      <g transform="translate(0, 112)" class="fade" style="animation-delay:180ms">
-        <g transform="translate(0, 8)">
-          <image x="0" y="0" width="30" height="30" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjU2IiBoZWlnaHQ9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2IiByeD0iNjAiIGZpbGw9IiNGMERCNEYiLz4KPHBhdGggZD0iTTY3LjMxMTcgMjEzLjkzMkw4Ni45MDI3IDIwMi4wNzZDOTAuNjgyMSAyMDguNzc3IDk0LjEyMDIgMjE0LjQ0NyAxMDIuMzY3IDIxNC40NDdDMTEwLjI3MiAyMTQuNDQ3IDExNS4yNTYgMjExLjM1NSAxMTUuMjU2IDE5OS4zMjdWMTE3LjUyOUgxMzkuMzE0VjE5OS42NjdDMTM5LjMxNCAyMjQuNTg0IDEyNC43MDggMjM1LjkyNiAxMDMuMzk4IDIzNS45MjZDODQuMTUzMyAyMzUuOTI2IDcyLjk4MTkgMjI1Ljk1OSA2Ny4zMTEzIDIxMy45MyIgZmlsbD0iIzMyMzMzMCIvPgo8cGF0aCBkPSJNMTUyLjM4MSAyMTEuMzU0TDE3MS45NjkgMjAwLjAxM0MxNzcuMTI2IDIwOC40MzQgMTgzLjgyOCAyMTQuNjIgMTk1LjY4NCAyMTQuNjJDMjA1LjY1MyAyMTQuNjIgMjEyLjAwOSAyMDkuNjM2IDIxMi4wMDkgMjAyLjc2MkMyMTIuMDA5IDE5NC41MTQgMjA1LjQ3OSAxOTEuNTkyIDE5NC40ODEgMTg2Ljc4MkwxODguNDY4IDE4NC4yMDNDMTcxLjExMSAxNzYuODE1IDE1OS41OTcgMTY3LjUzNSAxNTkuNTk3IDE0Ny45NDVDMTU5LjU5NyAxMjkuOTAxIDE3My4zNDUgMTE2LjE1MyAxOTQuODI2IDExNi4xNTNDMjEwLjEyIDExNi4xNTMgMjIxLjExOCAxMjEuNDgxIDIyOS4wMjIgMTM1LjRMMjEwLjI5MSAxNDcuNDI5QzIwNi4xNjYgMTQwLjA0IDIwMS43IDEzNy4xMTkgMTk0LjgyNiAxMzcuMTE5QzE4Ny43OCAxMzcuMTE5IDE4My4zMTIgMTQxLjU4NyAxODMuMzEyIDE0Ny40MjlDMTgzLjMxMiAxNTQuNjQ2IDE4Ny43OCAxNTcuNTY4IDE5OC4wOSAxNjIuMDM3TDIwNC4xMDQgMTY0LjYxNEMyMjQuNTUzIDE3My4zNzkgMjM2LjA2NyAxODIuMzEzIDIzNi4wNjcgMjAyLjQxOEMyMzYuMDY3IDIyNC4wNzIgMjE5LjA1NSAyMzUuOTI4IDE5Ni4yIDIzNS45MjhDMTczLjg2MSAyMzUuOTI4IDE1OS40MjYgMjI1LjI3NCAxNTIuMzgxIDIxMS4zNTQiIGZpbGw9IiMzMjMzMzAiLz4KPC9zdmc+"
+      <g transform="translate(0.0, 80)" class="fade" style="animation-delay:180ms">
+        <g transform="translate(0, 5)">
+          <image x="0" y="0" width="22" height="22" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjU2IiBoZWlnaHQ9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2IiByeD0iNjAiIGZpbGw9IiNGMERCNEYiLz4KPHBhdGggZD0iTTY3LjMxMTcgMjEzLjkzMkw4Ni45MDI3IDIwMi4wNzZDOTAuNjgyMSAyMDguNzc3IDk0LjEyMDIgMjE0LjQ0NyAxMDIuMzY3IDIxNC40NDdDMTEwLjI3MiAyMTQuNDQ3IDExNS4yNTYgMjExLjM1NSAxMTUuMjU2IDE5OS4zMjdWMTE3LjUyOUgxMzkuMzE0VjE5OS42NjdDMTM5LjMxNCAyMjQuNTg0IDEyNC43MDggMjM1LjkyNiAxMDMuMzk4IDIzNS45MjZDODQuMTUzMyAyMzUuOTI2IDcyLjk4MTkgMjI1Ljk1OSA2Ny4zMTEzIDIxMy45MyIgZmlsbD0iIzMyMzMzMCIvPgo8cGF0aCBkPSJNMTUyLjM4MSAyMTEuMzU0TDE3MS45NjkgMjAwLjAxM0MxNzcuMTI2IDIwOC40MzQgMTgzLjgyOCAyMTQuNjIgMTk1LjY4NCAyMTQuNjJDMjA1LjY1MyAyMTQuNjIgMjEyLjAwOSAyMDkuNjM2IDIxMi4wMDkgMjAyLjc2MkMyMTIuMDA5IDE5NC41MTQgMjA1LjQ3OSAxOTEuNTkyIDE5NC40ODEgMTg2Ljc4MkwxODguNDY4IDE4NC4yMDNDMTcxLjExMSAxNzYuODE1IDE1OS41OTcgMTY3LjUzNSAxNTkuNTk3IDE0Ny45NDVDMTU5LjU5NyAxMjkuOTAxIDE3My4zNDUgMTE2LjE1MyAxOTQuODI2IDExNi4xNTNDMjEwLjEyIDExNi4xNTMgMjIxLjExOCAxMjEuNDgxIDIyOS4wMjIgMTM1LjRMMjEwLjI5MSAxNDcuNDI5QzIwNi4xNjYgMTQwLjA0IDIwMS43IDEzNy4xMTkgMTk0LjgyNiAxMzcuMTE5QzE4Ny43OCAxMzcuMTE5IDE4My4zMTIgMTQxLjU4NyAxODMuMzEyIDE0Ny40MjlDMTgzLjMxMiAxNTQuNjQ2IDE4Ny43OCAxNTcuNTY4IDE5OC4wOSAxNjIuMDM3TDIwNC4xMDQgMTY0LjYxNEMyMjQuNTUzIDE3My4zNzkgMjM2LjA2NyAxODIuMzEzIDIzNi4wNjcgMjAyLjQxOEMyMzYuMDY3IDIyNC4wNzIgMjE5LjA1NSAyMzUuOTI4IDE5Ni4yIDIzNS45MjhDMTczLjg2MSAyMzUuOTI4IDE1OS40MjYgMjI1LjI3NCAxNTIuMzgxIDIxMS4zNTQiIGZpbGw9IiMzMjMzMzAiLz4KPC9zdmc+"
       preserveAspectRatio="xMidYMid meet" />
         </g>
-        <text x="42" y="28" class="t-name">JavaScript</text>
+        <text x="32" y="20.5" class="t-name">JavaScript</text>
 
-        <rect x="199" y="18" width="401.0" height="10"
-              rx="5" fill="#21262d" />
-        <rect x="199" y="18" width="72.9" height="10"
-              rx="5" fill="#f1e05a" />
+        <rect x="161.0" y="12" width="148.0"
+              height="8" rx="4" fill="#21262d" />
+        <rect x="161.0" y="12" width="26.9"
+              height="8" rx="4" fill="#f1e05a" />
 
-        <text x="660.0" y="28" text-anchor="end"
-              class="t-count">2 / 11</text>
-        <text x="704" y="28" text-anchor="end"
-              class="t-pct" fill="#f1e05a">18%</text>
+        <text x="345.0" y="20.5" text-anchor="end"
+              class="t-count" fill="#f1e05a">2/11</text>
 
-        <title>JavaScript — em 2 de 11 repositórios</title>
+        <title>JavaScript — em 2 de 11 repositórios (18%)</title>
       </g>
-      <g transform="translate(0, 168)" class="fade" style="animation-delay:270ms">
-        <g transform="translate(0, 8)">
-          <image x="0" y="0" width="30" height="30" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2IiBmaWxsPSJub25lIiB2aWV3Qm94PSIwIDAgMjU2IDI1NiI+PHJlY3Qgd2lkdGg9IjI1NiIgaGVpZ2h0PSIyNTYiIGZpbGw9IiMyNDI5MzgiIHJ4PSI2MCIvPjxwYXRoIGZpbGw9InVybCgjcGFpbnQwX2xpbmVhcl8yXzQ3KSIgZD0iTTEyNy4yNzkgMjlDNzYuNTA2NiAyOSA3OS42NzcyIDUxLjAxOCA3OS42NzcyIDUxLjAxOEw3OS43MzM4IDczLjgyODRIMTI4LjE4NVY4MC42NzcySDYwLjQ4OTNDNjAuNDg5MyA4MC42NzcyIDI4IDc2Ljk5MjYgMjggMTI4LjIyMkMyOCAxNzkuNDUyIDU2LjM1NzMgMTc3LjYzNiA1Ni4zNTczIDE3Ny42MzZINzMuMjgxMlYxNTMuODYzQzczLjI4MTIgMTUzLjg2MyA3Mi4zNjkgMTI1LjUwNiAxMDEuMTg2IDEyNS41MDZIMTQ5LjI0QzE0OS4yNCAxMjUuNTA2IDE3Ni4yMzkgMTI1Ljk0MiAxNzYuMjM5IDk5LjQxMjNWNTUuNTQ2MUMxNzYuMjM5IDU1LjU0NjEgMTgwLjMzOCAyOSAxMjcuMjc5IDI5Wk0xMDAuNTYzIDQ0LjMzOUMxMDUuMzg0IDQ0LjMzOSAxMDkuMjggNDguMjM1MSAxMDkuMjggNTMuMDU1NkMxMDkuMjggNTcuODc2MSAxMDUuMzg0IDYxLjc3MjMgMTAwLjU2MyA2MS43NzIzQzk1Ljc0MjYgNjEuNzcyMyA5MS44NDY1IDU3Ljg3NjEgOTEuODQ2NSA1My4wNTU2QzkxLjg0NjUgNDguMjM1MSA5NS43NDI2IDQ0LjMzOSAxMDAuNTYzIDQ0LjMzOVoiLz48cGF0aCBmaWxsPSJ1cmwoI3BhaW50MV9saW5lYXJfMl80NykiIGQ9Ik0xMjguNzIxIDIyNy45NThDMTc5LjQ5MyAyMjcuOTU4IDE3Ni4zMjMgMjA1Ljk0MSAxNzYuMzIzIDIwNS45NDFMMTc2LjI2NiAxODMuMTNIMTI3LjgxNVYxNzYuMjgxSDE5NS41MTFDMTk1LjUxMSAxNzYuMjgxIDIyOCAxNzkuOTY2IDIyOCAxMjguNzM2QzIyOCA3Ny41MDYyIDE5OS42NDMgNzkuMzIzIDE5OS42NDMgNzkuMzIzSDE4Mi43MTlWMTAzLjA5NkMxODIuNzE5IDEwMy4wOTYgMTgzLjYzMSAxMzEuNDUzIDE1NC44MTQgMTMxLjQ1M0gxMDYuNzZDMTA2Ljc2IDEzMS40NTMgNzkuNzYwNyAxMzEuMDE2IDc5Ljc2MDcgMTU3LjU0NlYyMDEuNDEyQzc5Ljc2MDcgMjAxLjQxMiA3NS42NjE1IDIyNy45NTggMTI4LjcyMSAyMjcuOTU4Wk0xNTUuNDM3IDIxMi42MTlDMTUwLjYxNiAyMTIuNjE5IDE0Ni43MiAyMDguNzIzIDE0Ni43MiAyMDMuOTAzQzE0Ni43MiAxOTkuMDgyIDE1MC42MTYgMTk1LjE4NiAxNTUuNDM3IDE5NS4xODZDMTYwLjI1NyAxOTUuMTg2IDE2NC4xNTQgMTk5LjA4MiAxNjQuMTU0IDIwMy45MDNDMTY0LjE1NCAyMDguNzIzIDE2MC4yNTcgMjEyLjYxOSAxNTUuNDM3IDIxMi42MTlaIi8+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJwYWludDBfbGluZWFyXzJfNDciIHgxPSI0Ny4yMiIgeDI9IjE0Ni4zMzMiIHkxPSI0Ni44OTYiIHkyPSIxNDUuMDIiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj48c3RvcCBzdG9wLWNvbG9yPSIjMzg3RUI4Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMzY2OTk0Ii8+PC9saW5lYXJHcmFkaWVudD48bGluZWFyR3JhZGllbnQgaWQ9InBhaW50MV9saW5lYXJfMl80NyIgeDE9IjEwOC4wNTYiIHgyPSIyMTQuNDkyIiB5MT0iMTA5LjkwNSIgeTI9IjIxMC41MjIiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj48c3RvcCBzdG9wLWNvbG9yPSIjRkZFMDUyIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjRkZDMzMxIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PC9zdmc+"
+      <g transform="translate(367.0, 0)" class="fade" style="animation-delay:270ms">
+        <g transform="translate(0, 5)">
+          <image x="0" y="0" width="22" height="22" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2IiBmaWxsPSJub25lIiB2aWV3Qm94PSIwIDAgMjU2IDI1NiI+PHJlY3Qgd2lkdGg9IjI1NiIgaGVpZ2h0PSIyNTYiIGZpbGw9IiMyNDI5MzgiIHJ4PSI2MCIvPjxwYXRoIGZpbGw9InVybCgjcGFpbnQwX2xpbmVhcl8yXzQ3KSIgZD0iTTEyNy4yNzkgMjlDNzYuNTA2NiAyOSA3OS42NzcyIDUxLjAxOCA3OS42NzcyIDUxLjAxOEw3OS43MzM4IDczLjgyODRIMTI4LjE4NVY4MC42NzcySDYwLjQ4OTNDNjAuNDg5MyA4MC42NzcyIDI4IDc2Ljk5MjYgMjggMTI4LjIyMkMyOCAxNzkuNDUyIDU2LjM1NzMgMTc3LjYzNiA1Ni4zNTczIDE3Ny42MzZINzMuMjgxMlYxNTMuODYzQzczLjI4MTIgMTUzLjg2MyA3Mi4zNjkgMTI1LjUwNiAxMDEuMTg2IDEyNS41MDZIMTQ5LjI0QzE0OS4yNCAxMjUuNTA2IDE3Ni4yMzkgMTI1Ljk0MiAxNzYuMjM5IDk5LjQxMjNWNTUuNTQ2MUMxNzYuMjM5IDU1LjU0NjEgMTgwLjMzOCAyOSAxMjcuMjc5IDI5Wk0xMDAuNTYzIDQ0LjMzOUMxMDUuMzg0IDQ0LjMzOSAxMDkuMjggNDguMjM1MSAxMDkuMjggNTMuMDU1NkMxMDkuMjggNTcuODc2MSAxMDUuMzg0IDYxLjc3MjMgMTAwLjU2MyA2MS43NzIzQzk1Ljc0MjYgNjEuNzcyMyA5MS44NDY1IDU3Ljg3NjEgOTEuODQ2NSA1My4wNTU2QzkxLjg0NjUgNDguMjM1MSA5NS43NDI2IDQ0LjMzOSAxMDAuNTYzIDQ0LjMzOVoiLz48cGF0aCBmaWxsPSJ1cmwoI3BhaW50MV9saW5lYXJfMl80NykiIGQ9Ik0xMjguNzIxIDIyNy45NThDMTc5LjQ5MyAyMjcuOTU4IDE3Ni4zMjMgMjA1Ljk0MSAxNzYuMzIzIDIwNS45NDFMMTc2LjI2NiAxODMuMTNIMTI3LjgxNVYxNzYuMjgxSDE5NS41MTFDMTk1LjUxMSAxNzYuMjgxIDIyOCAxNzkuOTY2IDIyOCAxMjguNzM2QzIyOCA3Ny41MDYyIDE5OS42NDMgNzkuMzIzIDE5OS42NDMgNzkuMzIzSDE4Mi43MTlWMTAzLjA5NkMxODIuNzE5IDEwMy4wOTYgMTgzLjYzMSAxMzEuNDUzIDE1NC44MTQgMTMxLjQ1M0gxMDYuNzZDMTA2Ljc2IDEzMS40NTMgNzkuNzYwNyAxMzEuMDE2IDc5Ljc2MDcgMTU3LjU0NlYyMDEuNDEyQzc5Ljc2MDcgMjAxLjQxMiA3NS42NjE1IDIyNy45NTggMTI4LjcyMSAyMjcuOTU4Wk0xNTUuNDM3IDIxMi42MTlDMTUwLjYxNiAyMTIuNjE5IDE0Ni43MiAyMDguNzIzIDE0Ni43MiAyMDMuOTAzQzE0Ni43MiAxOTkuMDgyIDE1MC42MTYgMTk1LjE4NiAxNTUuNDM3IDE5NS4xODZDMTYwLjI1NyAxOTUuMTg2IDE2NC4xNTQgMTk5LjA4MiAxNjQuMTU0IDIwMy45MDNDMTY0LjE1NCAyMDguNzIzIDE2MC4yNTcgMjEyLjYxOSAxNTUuNDM3IDIxMi42MTlaIi8+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJwYWludDBfbGluZWFyXzJfNDciIHgxPSI0Ny4yMiIgeDI9IjE0Ni4zMzMiIHkxPSI0Ni44OTYiIHkyPSIxNDUuMDIiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj48c3RvcCBzdG9wLWNvbG9yPSIjMzg3RUI4Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMzY2OTk0Ii8+PC9saW5lYXJHcmFkaWVudD48bGluZWFyR3JhZGllbnQgaWQ9InBhaW50MV9saW5lYXJfMl80NyIgeDE9IjEwOC4wNTYiIHgyPSIyMTQuNDkyIiB5MT0iMTA5LjkwNSIgeTI9IjIxMC41MjIiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj48c3RvcCBzdG9wLWNvbG9yPSIjRkZFMDUyIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjRkZDMzMxIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PC9zdmc+"
       preserveAspectRatio="xMidYMid meet" />
         </g>
-        <text x="42" y="28" class="t-name">Python</text>
+        <text x="32" y="20.5" class="t-name">Python</text>
 
-        <rect x="199" y="18" width="401.0" height="10"
-              rx="5" fill="#21262d" />
-        <rect x="199" y="18" width="72.9" height="10"
-              rx="5" fill="#3572A5" />
+        <rect x="161.0" y="12" width="148.0"
+              height="8" rx="4" fill="#21262d" />
+        <rect x="161.0" y="12" width="26.9"
+              height="8" rx="4" fill="#3572A5" />
 
-        <text x="660.0" y="28" text-anchor="end"
-              class="t-count">2 / 11</text>
-        <text x="704" y="28" text-anchor="end"
-              class="t-pct" fill="#4187c2">18%</text>
+        <text x="345.0" y="20.5" text-anchor="end"
+              class="t-count" fill="#4187c2">2/11</text>
 
-        <title>Python — em 2 de 11 repositórios</title>
+        <title>Python — em 2 de 11 repositórios (18%)</title>
       </g>
-      <g transform="translate(0, 224)" class="fade" style="animation-delay:360ms">
-        <g transform="translate(0, 8)">
-          <image x="0" y="0" width="30" height="30" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2IiBmaWxsPSJub25lIiB2aWV3Qm94PSIwIDAgMjU2IDI1NiI+PHJlY3Qgd2lkdGg9IjI1NiIgaGVpZ2h0PSIyNTYiIGZpbGw9IiMyNDI5MzgiIHJ4PSI2MCIvPjxwYXRoIGZpbGw9IiMyNDI5MzgiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTIwMy44MTkgNjguODM1NEwxNDAuNjc5IDMxLjM1NTJDMTMzLjE0MyAyNi44ODE2IDEyMy44NTQgMjYuODgxNiAxMTYuMzE4IDMxLjM1NTJMNTMuMTc3NCA2OC44MzU0QzQ1LjY0MzQgNzMuMzA5MSA0MSA4MS41NzUgNDEgOTAuNTIyM1YxNjUuNDgzQzQxIDE3NC40MjggNDUuNjQzNCAxODIuNjk4IDUzLjE3OTYgMTg3LjE3MkwxMTYuMzIgMjI0LjY0NUMxMjAuMDg4IDIyNi44ODMgMTI0LjI5IDIyNy45OTkgMTI4LjQ5OSAyMjcuOTk5QzEzMi43MDYgMjI3Ljk5OSAxMzYuOTA5IDIyNi44ODMgMTQwLjY3NyAyMjQuNjQ1TDIwMy44MTcgMTg3LjE3MkMyMTEuMzUzIDE4Mi42OTggMjE1Ljk5OSAxNzQuNDI4IDIxNS45OTkgMTY1LjQ4M1Y5MC41MjIzQzIxNS45OTkgODEuNTc1IDIxMS4zNTMgNzMuMzA5MSAyMDMuODE5IDY4LjgzNTRaIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiLz48cGF0aCBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMTguNTI3IDIyMC44MDhMNTUuMzg2NiAxODMuMzM0QzQ5LjIxMDggMTc5LjY2OCA0NS4zNzQ0IDE3Mi44MjggNDUuMzc0NCAxNjUuNDgyVjkwLjUyMzRDNDUuMzc0NCA4My4xNzY4IDQ5LjIxMDkgNzYuMzM3NCA1NS4zODQ0IDcyLjY3M0wxMTguNTI3IDM1LjE5MjhDMTIxLjU1NCAzMy4zOTU4IDEyNS4wMDIgMzIuNDQ1NSAxMjguNDk5IDMyLjQ0NTVDMTMxLjk5NCAzMi40NDU1IDEzNS40NDIgMzMuMzk1OCAxMzguNDcyIDM1LjE5MjhMMjAxLjYxMiA3Mi42NzNDMjA2LjgxNiA3NS43NjE5IDIxMC4zMjYgODEuMTEwOSAyMTEuMzEzIDg3LjExMDNDMjA5LjIxOSA4Mi42NDExIDIwNC40OTYgODEuNDI2MiAxOTguOTkzIDg0LjY0MDlMMTM5LjI1OSAxMjEuNTM3QzEzMS44MTEgMTI1Ljg5MSAxMjYuMzE5IDEzMC43NzcgMTI2LjMxNCAxMzkuNzU4VjIxMy4zNjJDMTI2LjMxIDIxOC43NCAxMjguNDgyIDIyMi4yMjMgMTMxLjgxOCAyMjMuMjMzQzEzMC43MjIgMjIzLjQyMyAxMjkuNjE3IDIyMy41NTUgMTI4LjQ5OSAyMjMuNTU1QzEyNS4wMDIgMjIzLjU1NSAxMjEuNTU0IDIyMi42MDUgMTE4LjUyNyAyMjAuODA4Wk0yMDMuODE5IDY4LjgzNDNMMTQwLjY3OSAzMS4zNTYzQzEzNi45MTEgMjkuMTE4NCAxMzIuNzA0IDI4LjAwMDUgMTI4LjQ5OSAyOC4wMDA1QzEyNC4yOTMgMjguMDAwNSAxMjAuMDg2IDI5LjExODQgMTE2LjMxOCAzMS4zNTYzTDUzLjE3NzQgNjguODM0M0M0NS42NDM0IDczLjMwOCA0MSA4MS41NzYxIDQxIDkwLjUyMzRWMTY1LjQ4MkM0MSAxNzQuNDI3IDQ1LjY0MzQgMTgyLjY5NyA1My4xNzk2IDE4Ny4xNzFMMTE2LjMyIDIyNC42NDZDMTIwLjA5IDIyNi44ODIgMTI0LjI5MyAyMjggMTI4LjQ5OSAyMjhDMTMyLjcwNiAyMjggMTM2LjkwOSAyMjYuODgyIDE0MC42NzcgMjI0LjY0NkwyMDMuODE5IDE4Ny4xNzFDMjExLjM1NSAxODIuNjk3IDIxNS45OTkgMTc0LjQyNyAyMTUuOTk5IDE2NS40ODJWOTAuNTIzNEMyMTUuOTk5IDgxLjU3NjEgMjExLjM1NSA3My4zMDggMjAzLjgxOSA2OC44MzQzWiIgY2xpcC1ydWxlPSJldmVub2RkIi8+PHBhdGggZmlsbD0iIzQ3QjM1MyIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMTg3LjI2NyAxNzIuNzI5TDE3MS41NDUgMTgyLjEzOUMxNzEuMTI4IDE4Mi4zODIgMTcwLjgyMiAxODIuNjU1IDE3MC44MTkgMTgzLjE1NlYxODcuMjdDMTcwLjgxOSAxODcuNzczIDE3MS4xNTcgMTg3Ljk4MiAxNzEuNTczIDE4Ny43MzdMMTg3LjUzOSAxNzguMDM0QzE4Ny45NTUgMTc3Ljc5MSAxODguMDE5IDE3Ny4zMjYgMTg4LjAyMiAxNzYuODI1VjE3My4xOTZDMTg4LjAyMiAxNzIuNjk2IDE4Ny42ODQgMTcyLjQ4NiAxODcuMjY3IDE3Mi43MjlaIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiLz48cGF0aCBmaWxsPSIjMjQyOTM4IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xNTMuNzg4IDEzOC4wOThDMTU0LjI5NyAxMzcuODQgMTU0LjcxNiAxMzguMTU3IDE1NC43MjMgMTM4LjgyM0wxNTQuNzc2IDE0NC4yNjJDMTU3LjA1MyAxNDMuMzU2IDE1OS4wMzEgMTQzLjExNCAxNjAuODIzIDE0My41MjhDMTYxLjIxMiAxNDMuNjMyIDE2MS4zODQgMTQ0LjE2MSAxNjEuMjI1IDE0NC43ODlMMTYwLjAyOCAxNDkuNjA5QzE1OS45MzUgMTQ5Ljk3MyAxNTkuNzMgMTUwLjM0MSAxNTkuNDgzIDE1MC41N0MxNTkuMzc5IDE1MC42NzIgMTU5LjI3MyAxNTAuNzUxIDE1OS4xNjggMTUwLjgwNEMxNTkuMDA3IDE1MC44ODYgMTU4Ljg0OCAxNTAuOTEyIDE1OC42OTYgMTUwLjg4MUMxNTcuODc4IDE1MC42OTYgMTU1LjkzMyAxNTAuMjcxIDE1Mi44NzMgMTUxLjgyMUMxNDkuNjYzIDE1My40NDYgMTQ4LjU0IDE1Ni4yMzUgMTQ4LjU2MiAxNTguMzA1QzE0OC41ODkgMTYwLjc3NyAxNDkuODU3IDE2MS41MjYgMTU0LjIzNSAxNjEuNjAxQzE2MC4wNjkgMTYxLjY5OCAxNjIuNTkgMTY0LjI0NyAxNjIuNjUxIDE3MC4xMjNDMTYyLjcxMSAxNzUuODkzIDE1OS42MzEgMTgyLjA4OSAxNTQuOTE5IDE4NS44ODZMMTU1LjAyMyAxOTEuMjdDMTU1LjAyOSAxOTEuOTE4IDE1NC42MDggMTkyLjY2MSAxNTQuMDk5IDE5Mi45MTlMMTUwLjkxIDE5NC43NTZDMTUwLjM5OSAxOTUuMDE0IDE0OS45OCAxOTQuNjk2IDE0OS45NzMgMTk0LjA0OEwxNDkuOTE4IDE4OC43NTJDMTQ3LjE4NyAxODkuODg3IDE0NC40MTkgMTkwLjE2MSAxNDIuNjUxIDE4OS40NTFDMTQyLjMxOCAxODkuMzIxIDE0Mi4xNzUgMTg4LjgyOSAxNDIuMzA3IDE4OC4yNjlMMTQzLjQ2MyAxODMuNDAxQzE0My41NTUgMTgzLjAxNyAxNDMuNzU4IDE4Mi42MzMgMTQ0LjAzNCAxODIuMzg5QzE0NC4xMzEgMTgyLjI5NCAxNDQuMjMyIDE4Mi4yMjEgMTQ0LjMzMyAxODIuMTdDMTQ0LjUxNiAxODIuMDc4IDE0NC42OTUgMTgyLjA1OCAxNDQuODQ3IDE4Mi4xMTVDMTQ2Ljc1MiAxODIuNzU3IDE0OS4xODkgMTgyLjQ1NyAxNTEuNTMyIDE4MS4yNzFDMTU0LjUwOSAxNzkuNzY1IDE1Ni41IDE3Ni43MjkgMTU2LjQ2OSAxNzMuNzEzQzE1Ni40NCAxNzAuOTc2IDE1NC45NTkgMTY5LjgzOSAxNTEuMzU2IDE2OS44MTJDMTQ2Ljc3IDE2OS44MjUgMTQyLjQ5NSAxNjguOTIxIDE0Mi40MjQgMTYyLjE3QzE0Mi4zNjcgMTU2LjYxMiAxNDUuMjU3IDE1MC44MjggMTQ5LjgzMiAxNDcuMTcxTDE0OS43NzUgMTQxLjczNkMxNDkuNzY4IDE0MS4wNjggMTUwLjE3NiAxNDAuMzMzIDE1MC43MDEgMTQwLjA2OUwxNTMuNzg4IDEzOC4wOThaIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4="
+      <g transform="translate(367.0, 40)" class="fade" style="animation-delay:360ms">
+        <g transform="translate(0, 5)">
+          <image x="0" y="0" width="22" height="22" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2IiBmaWxsPSJub25lIiB2aWV3Qm94PSIwIDAgMjU2IDI1NiI+PHJlY3Qgd2lkdGg9IjI1NiIgaGVpZ2h0PSIyNTYiIGZpbGw9IiMyNDI5MzgiIHJ4PSI2MCIvPjxwYXRoIGZpbGw9IiMyNDI5MzgiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTIwMy44MTkgNjguODM1NEwxNDAuNjc5IDMxLjM1NTJDMTMzLjE0MyAyNi44ODE2IDEyMy44NTQgMjYuODgxNiAxMTYuMzE4IDMxLjM1NTJMNTMuMTc3NCA2OC44MzU0QzQ1LjY0MzQgNzMuMzA5MSA0MSA4MS41NzUgNDEgOTAuNTIyM1YxNjUuNDgzQzQxIDE3NC40MjggNDUuNjQzNCAxODIuNjk4IDUzLjE3OTYgMTg3LjE3MkwxMTYuMzIgMjI0LjY0NUMxMjAuMDg4IDIyNi44ODMgMTI0LjI5IDIyNy45OTkgMTI4LjQ5OSAyMjcuOTk5QzEzMi43MDYgMjI3Ljk5OSAxMzYuOTA5IDIyNi44ODMgMTQwLjY3NyAyMjQuNjQ1TDIwMy44MTcgMTg3LjE3MkMyMTEuMzUzIDE4Mi42OTggMjE1Ljk5OSAxNzQuNDI4IDIxNS45OTkgMTY1LjQ4M1Y5MC41MjIzQzIxNS45OTkgODEuNTc1IDIxMS4zNTMgNzMuMzA5MSAyMDMuODE5IDY4LjgzNTRaIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiLz48cGF0aCBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMTguNTI3IDIyMC44MDhMNTUuMzg2NiAxODMuMzM0QzQ5LjIxMDggMTc5LjY2OCA0NS4zNzQ0IDE3Mi44MjggNDUuMzc0NCAxNjUuNDgyVjkwLjUyMzRDNDUuMzc0NCA4My4xNzY4IDQ5LjIxMDkgNzYuMzM3NCA1NS4zODQ0IDcyLjY3M0wxMTguNTI3IDM1LjE5MjhDMTIxLjU1NCAzMy4zOTU4IDEyNS4wMDIgMzIuNDQ1NSAxMjguNDk5IDMyLjQ0NTVDMTMxLjk5NCAzMi40NDU1IDEzNS40NDIgMzMuMzk1OCAxMzguNDcyIDM1LjE5MjhMMjAxLjYxMiA3Mi42NzNDMjA2LjgxNiA3NS43NjE5IDIxMC4zMjYgODEuMTEwOSAyMTEuMzEzIDg3LjExMDNDMjA5LjIxOSA4Mi42NDExIDIwNC40OTYgODEuNDI2MiAxOTguOTkzIDg0LjY0MDlMMTM5LjI1OSAxMjEuNTM3QzEzMS44MTEgMTI1Ljg5MSAxMjYuMzE5IDEzMC43NzcgMTI2LjMxNCAxMzkuNzU4VjIxMy4zNjJDMTI2LjMxIDIxOC43NCAxMjguNDgyIDIyMi4yMjMgMTMxLjgxOCAyMjMuMjMzQzEzMC43MjIgMjIzLjQyMyAxMjkuNjE3IDIyMy41NTUgMTI4LjQ5OSAyMjMuNTU1QzEyNS4wMDIgMjIzLjU1NSAxMjEuNTU0IDIyMi42MDUgMTE4LjUyNyAyMjAuODA4Wk0yMDMuODE5IDY4LjgzNDNMMTQwLjY3OSAzMS4zNTYzQzEzNi45MTEgMjkuMTE4NCAxMzIuNzA0IDI4LjAwMDUgMTI4LjQ5OSAyOC4wMDA1QzEyNC4yOTMgMjguMDAwNSAxMjAuMDg2IDI5LjExODQgMTE2LjMxOCAzMS4zNTYzTDUzLjE3NzQgNjguODM0M0M0NS42NDM0IDczLjMwOCA0MSA4MS41NzYxIDQxIDkwLjUyMzRWMTY1LjQ4MkM0MSAxNzQuNDI3IDQ1LjY0MzQgMTgyLjY5NyA1My4xNzk2IDE4Ny4xNzFMMTE2LjMyIDIyNC42NDZDMTIwLjA5IDIyNi44ODIgMTI0LjI5MyAyMjggMTI4LjQ5OSAyMjhDMTMyLjcwNiAyMjggMTM2LjkwOSAyMjYuODgyIDE0MC42NzcgMjI0LjY0NkwyMDMuODE5IDE4Ny4xNzFDMjExLjM1NSAxODIuNjk3IDIxNS45OTkgMTc0LjQyNyAyMTUuOTk5IDE2NS40ODJWOTAuNTIzNEMyMTUuOTk5IDgxLjU3NjEgMjExLjM1NSA3My4zMDggMjAzLjgxOSA2OC44MzQzWiIgY2xpcC1ydWxlPSJldmVub2RkIi8+PHBhdGggZmlsbD0iIzQ3QjM1MyIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMTg3LjI2NyAxNzIuNzI5TDE3MS41NDUgMTgyLjEzOUMxNzEuMTI4IDE4Mi4zODIgMTcwLjgyMiAxODIuNjU1IDE3MC44MTkgMTgzLjE1NlYxODcuMjdDMTcwLjgxOSAxODcuNzczIDE3MS4xNTcgMTg3Ljk4MiAxNzEuNTczIDE4Ny43MzdMMTg3LjUzOSAxNzguMDM0QzE4Ny45NTUgMTc3Ljc5MSAxODguMDE5IDE3Ny4zMjYgMTg4LjAyMiAxNzYuODI1VjE3My4xOTZDMTg4LjAyMiAxNzIuNjk2IDE4Ny42ODQgMTcyLjQ4NiAxODcuMjY3IDE3Mi43MjlaIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiLz48cGF0aCBmaWxsPSIjMjQyOTM4IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xNTMuNzg4IDEzOC4wOThDMTU0LjI5NyAxMzcuODQgMTU0LjcxNiAxMzguMTU3IDE1NC43MjMgMTM4LjgyM0wxNTQuNzc2IDE0NC4yNjJDMTU3LjA1MyAxNDMuMzU2IDE1OS4wMzEgMTQzLjExNCAxNjAuODIzIDE0My41MjhDMTYxLjIxMiAxNDMuNjMyIDE2MS4zODQgMTQ0LjE2MSAxNjEuMjI1IDE0NC43ODlMMTYwLjAyOCAxNDkuNjA5QzE1OS45MzUgMTQ5Ljk3MyAxNTkuNzMgMTUwLjM0MSAxNTkuNDgzIDE1MC41N0MxNTkuMzc5IDE1MC42NzIgMTU5LjI3MyAxNTAuNzUxIDE1OS4xNjggMTUwLjgwNEMxNTkuMDA3IDE1MC44ODYgMTU4Ljg0OCAxNTAuOTEyIDE1OC42OTYgMTUwLjg4MUMxNTcuODc4IDE1MC42OTYgMTU1LjkzMyAxNTAuMjcxIDE1Mi44NzMgMTUxLjgyMUMxNDkuNjYzIDE1My40NDYgMTQ4LjU0IDE1Ni4yMzUgMTQ4LjU2MiAxNTguMzA1QzE0OC41ODkgMTYwLjc3NyAxNDkuODU3IDE2MS41MjYgMTU0LjIzNSAxNjEuNjAxQzE2MC4wNjkgMTYxLjY5OCAxNjIuNTkgMTY0LjI0NyAxNjIuNjUxIDE3MC4xMjNDMTYyLjcxMSAxNzUuODkzIDE1OS42MzEgMTgyLjA4OSAxNTQuOTE5IDE4NS44ODZMMTU1LjAyMyAxOTEuMjdDMTU1LjAyOSAxOTEuOTE4IDE1NC42MDggMTkyLjY2MSAxNTQuMDk5IDE5Mi45MTlMMTUwLjkxIDE5NC43NTZDMTUwLjM5OSAxOTUuMDE0IDE0OS45OCAxOTQuNjk2IDE0OS45NzMgMTk0LjA0OEwxNDkuOTE4IDE4OC43NTJDMTQ3LjE4NyAxODkuODg3IDE0NC40MTkgMTkwLjE2MSAxNDIuNjUxIDE4OS40NTFDMTQyLjMxOCAxODkuMzIxIDE0Mi4xNzUgMTg4LjgyOSAxNDIuMzA3IDE4OC4yNjlMMTQzLjQ2MyAxODMuNDAxQzE0My41NTUgMTgzLjAxNyAxNDMuNzU4IDE4Mi42MzMgMTQ0LjAzNCAxODIuMzg5QzE0NC4xMzEgMTgyLjI5NCAxNDQuMjMyIDE4Mi4yMjEgMTQ0LjMzMyAxODIuMTdDMTQ0LjUxNiAxODIuMDc4IDE0NC42OTUgMTgyLjA1OCAxNDQuODQ3IDE4Mi4xMTVDMTQ2Ljc1MiAxODIuNzU3IDE0OS4xODkgMTgyLjQ1NyAxNTEuNTMyIDE4MS4yNzFDMTU0LjUwOSAxNzkuNzY1IDE1Ni41IDE3Ni43MjkgMTU2LjQ2OSAxNzMuNzEzQzE1Ni40NCAxNzAuOTc2IDE1NC45NTkgMTY5LjgzOSAxNTEuMzU2IDE2OS44MTJDMTQ2Ljc3IDE2OS44MjUgMTQyLjQ5NSAxNjguOTIxIDE0Mi40MjQgMTYyLjE3QzE0Mi4zNjcgMTU2LjYxMiAxNDUuMjU3IDE1MC44MjggMTQ5LjgzMiAxNDcuMTcxTDE0OS43NzUgMTQxLjczNkMxNDkuNzY4IDE0MS4wNjggMTUwLjE3NiAxNDAuMzMzIDE1MC43MDEgMTQwLjA2OUwxNTMuNzg4IDEzOC4wOThaIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4="
       preserveAspectRatio="xMidYMid meet" />
         </g>
-        <text x="42" y="28" class="t-name">Shell</text>
+        <text x="32" y="20.5" class="t-name">Shell</text>
 
-        <rect x="199" y="18" width="401.0" height="10"
-              rx="5" fill="#21262d" />
-        <rect x="199" y="18" width="72.9" height="10"
-              rx="5" fill="#89e051" />
+        <rect x="161.0" y="12" width="148.0"
+              height="8" rx="4" fill="#21262d" />
+        <rect x="161.0" y="12" width="26.9"
+              height="8" rx="4" fill="#89e051" />
 
-        <text x="660.0" y="28" text-anchor="end"
-              class="t-count">2 / 11</text>
-        <text x="704" y="28" text-anchor="end"
-              class="t-pct" fill="#89e051">18%</text>
+        <text x="345.0" y="20.5" text-anchor="end"
+              class="t-count" fill="#89e051">2/11</text>
 
-        <title>Shell — em 2 de 11 repositórios</title>
+        <title>Shell — em 2 de 11 repositórios (18%)</title>
       </g>
-      <g transform="translate(0, 280)" class="fade" style="animation-delay:450ms">
-        <g transform="translate(0, 8)">
-          <rect x="5.5" y="5.5" width="19" height="19"
+      <g transform="translate(367.0, 80)" class="fade" style="animation-delay:450ms">
+        <g transform="translate(0, 5)">
+          <rect x="4.0" y="4.0" width="14" height="14"
       rx="2" fill="#ffaff3" />
         </g>
-        <text x="42" y="28" class="t-name">Gleam</text>
+        <text x="32" y="20.5" class="t-name">Gleam</text>
 
-        <rect x="199" y="18" width="401.0" height="10"
-              rx="5" fill="#21262d" />
-        <rect x="199" y="18" width="36.5" height="10"
-              rx="5" fill="#ffaff3" />
+        <rect x="161.0" y="12" width="148.0"
+              height="8" rx="4" fill="#21262d" />
+        <rect x="161.0" y="12" width="13.5"
+              height="8" rx="4" fill="#ffaff3" />
 
-        <text x="660.0" y="28" text-anchor="end"
-              class="t-count">1 / 11</text>
-        <text x="704" y="28" text-anchor="end"
-              class="t-pct" fill="#ffaff3">9%</text>
+        <text x="345.0" y="20.5" text-anchor="end"
+              class="t-count" fill="#ffaff3">1/11</text>
 
-        <title>Gleam — em 1 de 11 repositórios</title>
+        <title>Gleam — em 1 de 11 repositórios (9%)</title>
       </g>
     </g>
   </g>
