@@ -7,12 +7,13 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { MOCK } from "./mock-data.js";
-import { aggregate, topLanguages, reposWithCode, languageSpread } from "../src/stats.js";
+import { aggregate, topLanguages, reposWithCode, languageSpread, contributionGraph } from "../src/stats.js";
 import { resolveTheme, THEME_NAMES } from "../src/render/themes.js";
 import { renderStatsCard } from "../src/render/stats-card.js";
 import { renderLangsCard } from "../src/render/langs-card.js";
 import { renderDonutCard } from "../src/render/donut-card.js";
 import { renderSpreadCard } from "../src/render/spread-card.js";
+import { renderGraphCard } from "../src/render/graph-card.js";
 
 const themeName = process.argv[2] || "obsidian";
 if (!THEME_NAMES.includes(themeName)) {
@@ -35,6 +36,7 @@ const files = {
   }),
   "langs.svg": renderLangsCard(topLanguages(repos, { limit: 6, mode: "bytes" }), base),
   "spread.svg": renderSpreadCard(languageSpread(repos, { limit: 6, minShare: 5 }), base),
+  "graph.svg": renderGraphCard(contributionGraph(MOCK.user, { locale: "pt-BR" }), base),
 };
 
 for (const [name, svg] of Object.entries(files)) {

@@ -31,12 +31,89 @@ export function aggregate({ user, repos }) {
     followers: user.followers?.totalCount || 0,
   };
 
-  return { stats, repos };
+  // O user cru segue junto: o heatmap precisa do calendario, que nao cabe
+  // em `stats` sem achatar a estrutura de semanas.
+  return { stats, repos, user };
 }
 
 /** Numero de repositorios com linguagem detectada pelo GitHub. */
 export function reposWithCode(repos) {
   return repos.filter((r) => r.primaryLanguage?.name).length;
+}
+
+const MESES_PT = ["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"];
+const MESES_EN = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+/**
+ * Calendario de contribuicoes no formato que o heatmap precisa.
+ *
+ * Niveis por QUARTIS dos dias ativos, nao por fracao do maximo. Um unico dia de
+ * pico achataria todo o resto para o nivel 1 numa escala linear - com quartis, a
+ * intensidade continua distinguindo dias fracos de fortes mesmo quando ha um
+ * outlier.
+ *
+ * Devolve semanas como colunas (cada uma com 7 dias, domingo primeiro), que e a
+ * ordem em que a grade e desenhada.
+ */
+export function contributionGraph(user, opts = {}) {
+  const { locale = "pt-BR" } = opts;
+  const cal = user?.contributionsCollection?.contributionCalendar;
+  const semanas = cal?.weeks || [];
+  if (!semanas.length) return { total: 0, weeks: [], months: [], max: 0, activeDays: 0 };
+
+  const dias = semanas.flatMap((w) => w.contributionDays || []);
+  const ativos = dias.filter((d) => d.contributionCount > 0).map((d) => d.contributionCount);
+  ativos.sort((a, b) => a - b);
+
+  // Sem dias ativos nao ha escala; tudo fica no nivel 0.
+  const quartil = (q) => (ativos.length ? ativos[Math.floor((ativos.length - 1) * q)] : Infinity);
+  const cortes = [quartil(0.25), quartil(0.5), quartil(0.75)];
+
+  const nivel = (n) => {
+    if (n <= 0) return 0;
+    if (n <= cortes[0]) return 1;
+    if (n <= cortes[1]) return 2;
+    if (n <= cortes[2]) return 3;
+    return 4;
+  };
+
+  const meses = locale.startsWith("pt") ? MESES_PT : MESES_EN;
+  const months = [];
+  let mesAnterior = null;
+
+  const weeks = semanas.map((w, i) => {
+    const days = w.contributionDays || [];
+    // Rotulo do mes na primeira semana que o contem. Compara pelo dia 1..7 para
+    // nao rotular uma semana que so tem os ultimos dias do mes anterior.
+    const primeiro = days[0];
+    if (primeiro) {
+      const d = new Date(primeiro.date + "T00:00:00Z");
+      const m = d.getUTCMonth();
+      if (m !== mesAnterior) {
+        mesAnterior = m;
+        months.push({ label: meses[m], week: i });
+      }
+    }
+    // Preenche a semana ate 7 posicoes: a primeira e a ultima do periodo vem
+    // incompletas, e a grade precisa de buracos e nao de deslocamento.
+    const porDia = Array(7).fill(null);
+    for (const d of days) {
+      porDia[d.weekday] = {
+        date: d.date,
+        count: d.contributionCount,
+        level: nivel(d.contributionCount),
+      };
+    }
+    return porDia;
+  });
+
+  return {
+    total: cal.totalContributions || 0,
+    weeks,
+    months,
+    max: ativos.length ? ativos[ativos.length - 1] : 0,
+    activeDays: ativos.length,
+  };
 }
 
 /**

@@ -1,9 +1,10 @@
-import { getUserData, topLanguages, reposWithCode, languageSpread } from "./stats.js";
+import { getUserData, topLanguages, reposWithCode, languageSpread, contributionGraph } from "./stats.js";
 import { resolveTheme } from "./render/themes.js";
 import { renderStatsCard } from "./render/stats-card.js";
 import { renderLangsCard } from "./render/langs-card.js";
 import { renderDonutCard } from "./render/donut-card.js";
 import { renderSpreadCard } from "./render/spread-card.js";
+import { renderGraphCard } from "./render/graph-card.js";
 import { card } from "./render/card.js";
 import { escapeXml, clamp, parseBool, parseList, truncate } from "./utils.js";
 
@@ -73,7 +74,7 @@ export async function handle(kind, query) {
   );
 
   try {
-    const { stats, repos } = await getUserData(username);
+    const { stats, repos, user } = await getUserData(username);
     const opts = commonOptions(query);
     const width = parseInt(query.card_width, 10) || null;
     let svg;
@@ -88,6 +89,12 @@ export async function handle(kind, query) {
     } else if (kind === "langs") {
       const langs = topLanguages(repos, langOptions(query));
       svg = renderLangsCard(langs, { ...opts, width: clamp(width || 760, 520, 1100) });
+    } else if (kind === "graph") {
+      svg = renderGraphCard(contributionGraph(user, { locale: opts.locale }), {
+        ...opts,
+        title: opts.title || "Contribuições no último ano",
+        width: clamp(width || 760, 520, 1100),
+      });
     } else if (kind === "spread") {
       // show_others nao se aplica: nao ha todo a completar, cada barra e
       // independente. langOptions traz limit/exclude/includeArchived.

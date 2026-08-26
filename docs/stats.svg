@@ -75,8 +75,8 @@
               stroke="#58a6ff" stroke-width="1.5" opacity="0.5" />
 
         <text x="86" y="38" class="t-stat-label">Contribuições</text>
-        <text x="86" y="66" class="t-stat-value">2.841</text>
-        <title>Contribuições: 2.841</title>
+        <text x="86" y="66" class="t-stat-value">913</text>
+        <title>Contribuições: 913</title>
       </g>
       <g transform="translate(477.3, 0)" class="fade" style="animation-delay:180ms">
         <rect x="0" y="0" width="226.7" height="88" rx="12"

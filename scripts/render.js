@@ -7,12 +7,13 @@
 // Cada card pode receber parametros proprios via --donut="count_mode=repo&center=code"
 import { mkdirSync, writeFileSync, readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
-import { getUserData, topLanguages, reposWithCode, languageSpread } from "../src/stats.js";
+import { getUserData, topLanguages, reposWithCode, languageSpread, contributionGraph } from "../src/stats.js";
 import { resolveTheme } from "../src/render/themes.js";
 import { renderStatsCard } from "../src/render/stats-card.js";
 import { renderLangsCard } from "../src/render/langs-card.js";
 import { renderDonutCard } from "../src/render/donut-card.js";
 import { renderSpreadCard } from "../src/render/spread-card.js";
+import { renderGraphCard } from "../src/render/graph-card.js";
 
 if (existsSync(".env")) {
   for (const line of readFileSync(".env", "utf8").split("\n")) {
@@ -28,8 +29,8 @@ const args = Object.fromEntries(
   })
 );
 
-const user = args.user || process.env.GH_USER;
-if (!user) {
+const login = args.user || process.env.GH_USER;
+if (!login) {
   console.error("Uso: node scripts/render.js --user=SEU_LOGIN [--out=assets] [--theme=obsidian] [--suffix=-light] [--width=760]");
   process.exit(1);
 }
@@ -52,18 +53,18 @@ const base = {
   width: clampWidth(args.width),
 };
 
-let stats, repos;
+let stats, repos, user;
 try {
   if (args.mock === "true") {
     const { MOCK } = await import("./mock-data.js");
     const { aggregate } = await import("../src/stats.js");
-    ({ stats, repos } = aggregate(MOCK));
+    ({ stats, repos, user } = aggregate(MOCK));
   } else {
-    ({ stats, repos } = await getUserData(user, { force: true }));
+    ({ stats, repos, user } = await getUserData(login, { force: true }));
   }
 } catch (e) {
   // Mensagem limpa em vez de stack trace: o log do Actions fica legível.
-  console.error(`\nErro ao buscar dados de "${user}": ${e.message}`);
+  console.error(`\nErro ao buscar dados de "${login}": ${e.message}`);
   if (!process.env.PAT_1 && !process.env.GITHUB_TOKEN) {
     console.error("Dica: o secret PAT_1 não chegou ao workflow. Confira Settings → Secrets → Actions.");
   }
@@ -73,6 +74,7 @@ try {
 const donutOpts = extra("donut");
 const langsOpts = extra("langs");
 const spreadOpts = extra("spread");
+const graphOpts = extra("graph");
 
 const langsForDonut = topLanguages(repos, {
   limit: Number(donutOpts.langs_count) || 6,
@@ -113,6 +115,10 @@ const files = {
       donutOpts.center_label ||
       { stars: "Estrelas", contributions: "Contribuições", code: "Com código" }[donutOpts.center] ||
       "Repositórios",
+  }),
+  [`graph${suffix}.svg`]: renderGraphCard(contributionGraph(user, { locale: base.locale }), {
+    ...base,
+    width: clampWidth(graphOpts.card_width || args.width),
   }),
   [`spread${suffix}.svg`]: renderSpreadCard(spread, {
     ...base,

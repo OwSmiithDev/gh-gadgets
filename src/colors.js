@@ -160,3 +160,23 @@ export function readableOn(color, bg, min = 4.5) {
   }
   return hslToHex(h, sat, darken ? 12 : 94);
 }
+
+/**
+ * Interpola duas cores em RGB. `t` vai de 0 (a) a 1 (b).
+ *
+ * Usado para montar a escala do heatmap a partir dos tokens do tema, em vez de
+ * cravar uma rampa de verde: assim o card acompanha o tema como todos os
+ * outros, e um override de title_color troca a escala inteira.
+ */
+export function mix(a, b, t) {
+  const [ar, ag, ab] = toRgb(a);
+  const [br, bg, bb] = toRgb(b);
+  const c = (x, y) => Math.round((x + (y - x) * t) * 255).toString(16).padStart(2, "0");
+  return `#${c(ar, br)}${c(ag, bg)}${c(ab, bb)}`;
+}
+
+/** Escala de 5 niveis do heatmap: nivel 0 e o fundo, 4 e a cor cheia. */
+export function heatScale(surface, accent) {
+  return [surface, mix(surface, accent, 0.32), mix(surface, accent, 0.56),
+          mix(surface, accent, 0.8), accent];
+}

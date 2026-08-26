@@ -3,7 +3,7 @@
 Gadgets SVG dinâmicos para README do GitHub — no espírito do `github-readme-stats`,
 mas **sem nenhuma dependência**: só Node 18+ e a API GraphQL do GitHub.
 
-Quatro cards:
+Cinco cards:
 
 | Endpoint | O que mostra |
 |---|---|
@@ -11,6 +11,7 @@ Quatro cards:
 | `/donut` | Anel segmentado à esquerda, legenda em pílulas à direita |
 | `/langs` | Barra composta no topo, legenda em duas colunas embaixo |
 | `/spread` | Em quantos repositórios cada linguagem aparece |
+| `/graph` | Heatmap de contribuições dos últimos 12 meses |
 
 A legenda usa o **ícone real de cada linguagem**, embutido no SVG — nada é carregado
 de fora. Veja a [seção 5](#5-ícones-das-linguagens).
@@ -19,6 +20,7 @@ de fora. Veja a [seção 5](#5-ícones-das-linguagens).
 <img src="./docs/langs.svg" width="720" alt="Card de linguagens em barra">
 <img src="./docs/stats.svg" width="720" alt="Card de estatísticas">
 <img src="./docs/spread.svg" width="720" alt="Card de alcance das linguagens">
+<img src="./docs/graph.svg" width="720" alt="Heatmap de contribuições">
 
 ---
 
@@ -84,6 +86,7 @@ https://seu-app.vercel.app/donut?username=SEU_USER
 https://seu-app.vercel.app/stats?username=SEU_USER
 https://seu-app.vercel.app/langs?username=SEU_USER
 https://seu-app.vercel.app/spread?username=SEU_USER
+https://seu-app.vercel.app/graph?username=SEU_USER
 ```
 
 ### O entrypoint é o `server.js`
@@ -330,6 +333,15 @@ Exclusivos do `/donut`:
 | `center_label` | auto | Texto sob o número |
 | `ring_width` | `26` | Espessura do anel (8–40) |
 
+### `/graph`
+
+| Parâmetro | Padrão | Descrição |
+|---|---|---|
+| `title_color` | do tema | Define a escala inteira do heatmap. `title_color=39d353` devolve o verde do GitHub |
+
+O `/graph` não aceita os parâmetros de linguagem — ele não olha repositórios, e sim o
+calendário de contribuições do perfil.
+
 ### `/spread`
 
 | Parâmetro | Padrão | Descrição |
@@ -362,6 +374,30 @@ unidade por repositório e costuma refletir melhor o que a pessoa realmente escr
   em repositórios privados, contadas sem revelar o conteúdo).
 - **Issues** — abertas + fechadas.
 - Paginação para até 500 repositórios (5 páginas de 100).
+
+### O que o `/graph` mostra
+
+O calendário de contribuições dos últimos 12 meses, uma coluna por semana e sete linhas
+por dia, como o gráfico do próprio GitHub.
+
+A intensidade sai de **quartis dos dias ativos**, não de uma fração do máximo. Um único
+dia de pico numa escala linear achataria todo o resto para o nível 1; com quartis, dias
+fracos e fortes continuam distinguíveis mesmo havendo um outlier.
+
+A escala de cor vem dos tokens do tema, então o heatmap acompanha o mesmo azul dos outros
+cards. Para o verde clássico do GitHub, passe `title_color=39d353`.
+
+Duas coisas a saber antes de usar:
+
+- **Contribuições, não commits.** O calendário do GitHub conta commits, PRs, issues e
+  revisões. É a mesma métrica do gráfico que aparece no seu perfil.
+- **Em perfis pouco movimentados o card fica vazio.** Com 41 contribuições em 9 dias
+  distintos, 97% dos quadrados ficam apagados. Não é defeito do card — é o dado. Um
+  resumo por dia da semana leria melhor nesse caso.
+
+O calendário custa **zero requisições extras**: vem na mesma query, guardado por uma
+diretiva `@include` para só chegar na primeira página da paginação de repositórios, já
+que são ~22 KB e a query se repete até cinco vezes.
 
 ### O que o `/spread` mede
 
@@ -424,6 +460,7 @@ src/
     donut-card.js        ← o card assinatura
     langs-card.js
     spread-card.js       alcance: em quantos repos cada linguagem aparece
+    graph-card.js        heatmap de contribuições
 server.js                servidor local — e o entrypoint na Vercel
 scripts/preview.js       render com dados falsos, sem token
 scripts/render.js        CLI que grava os SVGs em disco (usado pelo Actions)

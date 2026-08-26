@@ -15,7 +15,7 @@ if (existsSync(".env")) {
 }
 
 const PORT = Number(process.env.PORT) || 3000;
-const KINDS = new Set(["stats", "donut", "langs", "spread"]);
+const KINDS = new Set(["stats", "donut", "langs", "spread", "graph"]);
 
 const server = createServer(async (req, res) => {
   const url = new URL(req.url, `http://${req.headers.host || "localhost"}`);

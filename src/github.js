@@ -89,7 +89,14 @@ query userStats($login: String!, $after: String, $includeAll: Boolean!) {
       totalCommitContributions
       totalPullRequestReviewContributions
       restrictedContributionsCount
-      contributionCalendar { totalContributions }
+      contributionCalendar {
+        totalContributions
+        # Guardado por $includeAll para vir so na primeira pagina: sao ~22 KB e
+        # a paginacao de repositorios repete esta query ate 5 vezes.
+        weeks @include(if: $includeAll) {
+          contributionDays { date weekday contributionCount }
+        }
+      }
     }
     pullRequests { totalCount }
     openIssues: issues(states: OPEN) { totalCount }
