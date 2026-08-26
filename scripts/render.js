@@ -7,11 +7,12 @@
 // Cada card pode receber parametros proprios via --donut="count_mode=repo&center=code"
 import { mkdirSync, writeFileSync, readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
-import { getUserData, topLanguages, reposWithCode } from "../src/stats.js";
+import { getUserData, topLanguages, reposWithCode, languageSpread } from "../src/stats.js";
 import { resolveTheme } from "../src/render/themes.js";
 import { renderStatsCard } from "../src/render/stats-card.js";
 import { renderLangsCard } from "../src/render/langs-card.js";
 import { renderDonutCard } from "../src/render/donut-card.js";
+import { renderSpreadCard } from "../src/render/spread-card.js";
 
 if (existsSync(".env")) {
   for (const line of readFileSync(".env", "utf8").split("\n")) {
@@ -71,6 +72,7 @@ try {
 
 const donutOpts = extra("donut");
 const langsOpts = extra("langs");
+const spreadOpts = extra("spread");
 
 const langsForDonut = topLanguages(repos, {
   limit: Number(donutOpts.langs_count) || 6,
@@ -93,6 +95,12 @@ const centerValue =
         ? stats.contributions
         : stats.repos;
 
+const spread = languageSpread(repos, {
+  limit: Number(spreadOpts.langs_count) || 6,
+  exclude: (spreadOpts.exclude_langs || "").split(",").map((s) => s.trim().toLowerCase()).filter(Boolean),
+  minShare: spreadOpts.min_share === undefined ? 5 : Number(spreadOpts.min_share),
+});
+
 mkdirSync(outDir, { recursive: true });
 
 const files = {
@@ -105,6 +113,10 @@ const files = {
       donutOpts.center_label ||
       { stars: "Estrelas", contributions: "Contribuições", code: "Com código" }[donutOpts.center] ||
       "Repositórios",
+  }),
+  [`spread${suffix}.svg`]: renderSpreadCard(spread, {
+    ...base,
+    width: clampWidth(spreadOpts.card_width || args.width),
   }),
   [`langs${suffix}.svg`]: renderLangsCard(langsForBar, {
     ...base,

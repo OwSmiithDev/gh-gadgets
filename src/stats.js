@@ -40,6 +40,63 @@ export function reposWithCode(repos) {
 }
 
 /**
+ * Alcance: em quantos repositorios cada linguagem aparece.
+ *
+ * Diferente de topLanguages nos dois modos. "bytes" responde quanto codigo, e
+ * "repo" conta so a linguagem principal - uma linguagem usada em metade dos
+ * repositorios sem nunca ser a principal fica invisivel nos dois.
+ *
+ * O resultado NAO e parte de um todo: uma linguagem conta em varios
+ * repositorios ao mesmo tempo, entao os votos somam mais que o total de repos.
+ * Por isso devolve contagem e o total, em vez de percentuais normalizados - quem
+ * renderiza precisa saber que cada barra e independente.
+ *
+ * minShare filtra tracos: um unico arquivo de reset nao significa "usa CSS".
+ */
+export function languageSpread(repos, opts = {}) {
+  const { limit = 6, exclude = [], includeArchived = true, minShare = 5 } = opts;
+
+  const skip = new Set(exclude.map((s) => String(s).toLowerCase()));
+  const pool = includeArchived ? repos : repos.filter((r) => !r.isArchived);
+  const counts = new Map();
+
+  for (const repo of pool) {
+    const edges = repo.languages?.edges || [];
+    const bytes = edges.reduce((sum, e) => sum + (e.size || 0), 0);
+    if (!bytes) continue;
+
+    // Set por repositorio: a mesma linguagem nunca vota duas vezes no mesmo repo,
+    // mesmo que a API devolvesse arestas repetidas.
+    const vistas = new Set();
+    for (const edge of edges) {
+      const name = edge.node?.name;
+      if (!name || skip.has(name.toLowerCase()) || vistas.has(name)) continue;
+      if (((edge.size || 0) / bytes) * 100 < minShare) continue;
+      vistas.add(name);
+      const entry = counts.get(name) || {
+        name,
+        color: languageColor(name, edge.node?.color),
+        repos: 0,
+      };
+      entry.repos++;
+      counts.set(name, entry);
+    }
+  }
+
+  // Total sao os repositorios com codigo detectavel. Contar os vazios inflaria o
+  // denominador e faria toda barra parecer menor do que e.
+  const total = pool.filter((r) => (r.languages?.edges || []).some((e) => e.size > 0)).length;
+  if (!total) return { total: 0, langs: [] };
+
+  const langs = [...counts.values()]
+    .sort((a, b) => b.repos - a.repos || a.name.localeCompare(b.name))
+    .slice(0, limit)
+    .map((l) => ({ ...l, share: (l.repos / total) * 100 }));
+
+  return { total, langs };
+}
+
+/**
  * Ranking de linguagens.
  *
  * mode "bytes" soma o peso real de codigo. mode "repo" conta 1 voto por

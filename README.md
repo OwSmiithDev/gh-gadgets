@@ -3,13 +3,14 @@
 Gadgets SVG dinâmicos para README do GitHub — no espírito do `github-readme-stats`,
 mas **sem nenhuma dependência**: só Node 18+ e a API GraphQL do GitHub.
 
-Três cards:
+Quatro cards:
 
 | Endpoint | O que mostra |
 |---|---|
 | `/stats` | Tiles com estrelas, contribuições, seguidores, commits, PRs e issues |
 | `/donut` | Anel segmentado à esquerda, legenda em pílulas à direita |
 | `/langs` | Barra composta no topo, legenda em duas colunas embaixo |
+| `/spread` | Em quantos repositórios cada linguagem aparece |
 
 A legenda usa o **ícone real de cada linguagem**, embutido no SVG — nada é carregado
 de fora. Veja a [seção 5](#5-ícones-das-linguagens).
@@ -17,6 +18,7 @@ de fora. Veja a [seção 5](#5-ícones-das-linguagens).
 <img src="./docs/donut.svg" width="720" alt="Card de linguagens em anel">
 <img src="./docs/langs.svg" width="720" alt="Card de linguagens em barra">
 <img src="./docs/stats.svg" width="720" alt="Card de estatísticas">
+<img src="./docs/spread.svg" width="720" alt="Card de alcance das linguagens">
 
 ---
 
@@ -81,6 +83,7 @@ já que a única exigência é o `fetch` global.
 https://seu-app.vercel.app/donut?username=SEU_USER
 https://seu-app.vercel.app/stats?username=SEU_USER
 https://seu-app.vercel.app/langs?username=SEU_USER
+https://seu-app.vercel.app/spread?username=SEU_USER
 ```
 
 ### O entrypoint é o `server.js`
@@ -327,6 +330,18 @@ Exclusivos do `/donut`:
 | `center_label` | auto | Texto sob o número |
 | `ring_width` | `26` | Espessura do anel (8–40) |
 
+### `/spread`
+
+| Parâmetro | Padrão | Descrição |
+|---|---|---|
+| `langs_count` | `6` | Quantas linguagens listar (1–10) |
+| `exclude_langs` | — | Ex.: `html,css,scss` |
+| `hide_archived` | `false` | Ignora repositórios arquivados |
+| `min_share` | `5` | Fração mínima dos bytes do repositório para a linguagem contar (0–50) |
+
+`show_others` **não** se aplica aqui: não há um todo a completar. Veja
+[seção 7](#o-que-o-spread-mede).
+
 **Dica sobre `count_mode`:** por bytes, um único repositório grande domina o gráfico —
 um projeto com muito CSS minificado vira "CSS developer". `count_mode=repo` conta uma
 unidade por repositório e costuma refletir melhor o que a pessoa realmente escreve.
@@ -347,6 +362,41 @@ unidade por repositório e costuma refletir melhor o que a pessoa realmente escr
   em repositórios privados, contadas sem revelar o conteúdo).
 - **Issues** — abertas + fechadas.
 - Paginação para até 500 repositórios (5 páginas de 100).
+
+### O que o `/spread` mede
+
+Os outros cards respondem "quanto código" (`/langs`, por bytes) e "quantos repositórios
+têm essa linguagem como principal" (`/donut` com `count_mode=repo`). O `/spread` responde
+uma terceira coisa: **em quantos repositórios a linguagem aparece**, seja ela principal
+ou não.
+
+As três divergem de verdade. Num perfil real:
+
+| | bytes | principal em | presente em |
+|---|---|---|---|
+| TypeScript | **62,0%** | 3 | 3 de 8 |
+| JavaScript | 22,8% | 2 | **6 de 8** |
+| CSS | 1,7% | **0** | 4 de 8 |
+
+CSS está em metade dos repositórios e **não aparece em nenhum outro card**, porque nunca
+é a linguagem principal. O ranking por bytes tem a distorção oposta: um repositório com
+SVGs grandes pode colocar "SVG" em primeiro lugar.
+
+**Cada barra é independente**, de 0 a 100% dos repositórios. Uma linguagem conta em vários
+repositórios ao mesmo tempo, então a soma passa de 100% — é por isso que este card usa
+barras separadas em vez de anel ou barra composta. As duas outras formas afirmam
+visualmente "isto soma 100%", e aqui seria mentira.
+
+Dois detalhes do denominador e do corte:
+
+- O total conta só repositórios com **código detectável**. Repositórios vazios inflariam
+  o denominador e fariam toda barra parecer menor do que é.
+- `min_share` evita chamar de "usa a linguagem" um arquivo de reset solto. O padrão de 5%
+  muda bastante o retrato: sem limiar, um perfil que testei mostra CSS em 36 repositórios;
+  com 5%, em 20. Use `min_share=0` para presença pura.
+
+Limite conhecido: a query pede `languages(first: 12)` por repositório. Uma 13ª linguagem
+minúscula num repo não é contada.
 
 Cache em duas camadas: memória do processo (30 min) e `Cache-Control` com
 `stale-while-revalidate`, que faz o CDN servir o card instantaneamente enquanto
@@ -373,6 +423,7 @@ src/
     stats-card.js
     donut-card.js        ← o card assinatura
     langs-card.js
+    spread-card.js       alcance: em quantos repos cada linguagem aparece
 server.js                servidor local — e o entrypoint na Vercel
 scripts/preview.js       render com dados falsos, sem token
 scripts/render.js        CLI que grava os SVGs em disco (usado pelo Actions)

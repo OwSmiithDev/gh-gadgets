@@ -1,8 +1,9 @@
-import { getUserData, topLanguages, reposWithCode } from "./stats.js";
+import { getUserData, topLanguages, reposWithCode, languageSpread } from "./stats.js";
 import { resolveTheme } from "./render/themes.js";
 import { renderStatsCard } from "./render/stats-card.js";
 import { renderLangsCard } from "./render/langs-card.js";
 import { renderDonutCard } from "./render/donut-card.js";
+import { renderSpreadCard } from "./render/spread-card.js";
 import { card } from "./render/card.js";
 import { escapeXml, clamp, parseBool, parseList, truncate } from "./utils.js";
 
@@ -87,6 +88,27 @@ export async function handle(kind, query) {
     } else if (kind === "langs") {
       const langs = topLanguages(repos, langOptions(query));
       svg = renderLangsCard(langs, { ...opts, width: clamp(width || 760, 520, 1100) });
+    } else if (kind === "spread") {
+      // show_others nao se aplica: nao ha todo a completar, cada barra e
+      // independente. langOptions traz limit/exclude/includeArchived.
+      const { limit, exclude, includeArchived } = langOptions(query);
+      const spread = languageSpread(repos, {
+        limit,
+        exclude,
+        includeArchived,
+        // parseInt("0") || 5 devolveria 5: zero e falsy, mas aqui e um valor
+        // valido — significa "conte qualquer traco da linguagem".
+        minShare: clamp(
+          Number.isFinite(parseInt(query.min_share, 10)) ? parseInt(query.min_share, 10) : 5,
+          0,
+          50
+        ),
+      });
+      svg = renderSpreadCard(spread, {
+        ...opts,
+        title: opts.title || "Linguagens por alcance",
+        width: clamp(width || 760, 520, 1100),
+      });
     } else if (kind === "donut") {
       const langs = topLanguages(repos, langOptions(query));
       const centerMode = query.center || "repos";
